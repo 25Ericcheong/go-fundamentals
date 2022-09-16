@@ -10,7 +10,7 @@ func main() {
 		b = false
 		c = 2.651
 		d = 4 + 1i
-		e = "Australia"
+		e = "Australiaa"
 		f = 15.2 * 4525.321
 	)
 
