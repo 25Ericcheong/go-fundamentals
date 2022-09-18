@@ -5,7 +5,7 @@ This repo is added for me to learn Go. I am currently going through this ~~[Go b
 
 ### Go Hello World
 
-- When writing go will have `main` package wiwth a `main` func in it.
+- When writing go will have `main` package wiwth a `main` func in it. Constants should improve performance since it saves time having to create a specific type instance whenever code is called. However, simple example is negligible.
 
 
 ## About Tests
