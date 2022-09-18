@@ -14,3 +14,4 @@ This repo is added for me to learn Go. I am currently going through this ~~[Go b
 
 - Each test file will need to be in the following format `xxx_test.go` and test function must start with the word `Test`. Test function only takes one argument `t *testing.T`
 and in order to use `*testing.T` type, will need to `import "testing"`
+- It is also possible to run subset of tests for the same function (different arguments supplied) wit the use of `t.Run("Message to display when error occurs", func(t *testing.T) { testing code ehere })`
