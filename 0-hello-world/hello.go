@@ -11,13 +11,15 @@ const french = "French"
 func Hello(name string, language string) string {
 	if name != "" {
 
-		if language == english {
-			return fmt.Sprintf("%v %v, from a Function!", helloEnglishPrefix, name)
-		} else if language == french {
-			return fmt.Sprintf("%v %v, from a Function!", helloFrenchPrefix, name)
-		} else {
-			return fmt.Sprintf("%v %v, from a Function!", helloMandarinPrefix, name)
+		helloPrefix := helloMandarinPrefix
+		switch language {
+		case french:
+			helloPrefix = helloFrenchPrefix
+		case english:
+			helloPrefix = helloEnglishPrefix
 		}
+
+		return fmt.Sprintf("%v %v, from a Function!", helloPrefix, name)
 	}
 	return "Hello Nobody!"
 }
