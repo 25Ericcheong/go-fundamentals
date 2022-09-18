@@ -4,4 +4,13 @@ This repo is added for me to learn Go. I am currently going through this ~~[Go b
 ## Learn Go with Tests
 
 ### Go Hello World
+
 - When writing go will have `main` package wiwth a `main` func in it.
+
+
+## About Tests
+
+### Go Hello World
+
+- Each test file will need to be in the following format `xxx_test.go` and test function must start with the word `Test`. Test function only takes one argument `t *testing.T`
+and in order to use `*testing.T` type, will need to `import "testing"`
