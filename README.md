@@ -7,6 +7,22 @@ This repo is added for me to learn Go. I am currently going through this ~~[Go b
 
 - When writing go will have `main` package wiwth a `main` func in it. Constants should improve performance since it saves time having to create a specific type instance whenever code is called. However, simple example is negligible.
 
+```
+func greetingPrefix(language string) (prefix string) {
+	switch language {
+	case french:
+		prefix = helloFrenchPrefix
+	case english:
+		prefix = helloEnglishPrefix
+	default:
+		prefix = helloMandarinPrefix
+	}
+	return
+}
+```
+
+- The above is a cool way of declaring a variable that will be assigned and return within a function (just my opinion - never seen such a syntax). The `prefix` will be assigned a `"zero"` value on the type (for a string it is `""` and for an int type it would be `0`). `return` will return the `prefix` variable declared in the method's signature.
+- Function names starting with a lowercase letter would be private and anything that starts with an uppercase will be used publicly. 
 
 ## About Tests
 
