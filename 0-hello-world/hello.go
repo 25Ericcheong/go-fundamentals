@@ -11,17 +11,22 @@ const french = "French"
 func Hello(name string, language string) string {
 	if name != "" {
 
-		helloPrefix := helloMandarinPrefix
-		switch language {
-		case french:
-			helloPrefix = helloFrenchPrefix
-		case english:
-			helloPrefix = helloEnglishPrefix
-		}
-
+		helloPrefix := greetingPrefix(language)
 		return fmt.Sprintf("%v %v, from a Function!", helloPrefix, name)
 	}
 	return "Hello Nobody!"
+}
+
+func greetingPrefix(language string) (prefix string) {
+	switch language {
+	case french:
+		prefix = helloFrenchPrefix
+	case english:
+		prefix = helloEnglishPrefix
+	default:
+		prefix = helloMandarinPrefix
+	}
+	return
 }
 
 func main() {
