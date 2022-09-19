@@ -1,3 +1,3 @@
-module 0-hello-world
+module go-fundamentals
 
 go 1.19
