@@ -24,6 +24,16 @@ func greetingPrefix(language string) (prefix string) {
 - The above is a cool way of declaring a variable that will be assigned and return within a function (just my opinion - never seen such a syntax). The `prefix` will be assigned a `"zero"` value on the type (for a string it is `""` and for an int type it would be `0`). `return` will return the `prefix` variable declared in the method's signature.
 - Function names starting with a lowercase letter would be private and anything that starts with an uppercase will be used publicly. 
 
+### Integers
+
+```
+func Add(x, y int) int {
+	return x + y
+}
+```
+
+- We can define arguments with the same type with the following code above. A shortcut way of doing it.
+
 ## About Tests
 
 ### Go Hello World
