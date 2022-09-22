@@ -34,6 +34,10 @@ func Add(x, y int) int {
 
 - We can define arguments with the same type with the following code above. A shortcut way of doing it.
 
+### Iteration
+
+- Go only has `for` loop used for anything that involves iteration. 
+
 ## About Tests
 
 ### Go Hello World
