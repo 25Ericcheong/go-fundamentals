@@ -67,6 +67,7 @@ func Sum(numbers [5]int) int {
 - Creating slices would be as simple as `[]int` and `make([]int, sizeOfSlice)` - allows us to create a new slice of the type inserted as the first argument along with the size of the slice as the second argument.
 - Cannot use equality operators with slices. Instead, should use `reflect.DeepEqual` which is useful for seeing if any 2 variables are the same. 
 - Worth noting that `DeepEqual` doesn't type safe check values. 
+- Instead of `make` which restricts the capacity of a slice, we can use the `append` function instead which appends new values to a slice - effectively allowing slice to grow in capacity as needed and will return a new slice along with the new appended value.
 
 ## About Tests
 
