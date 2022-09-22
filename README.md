@@ -61,7 +61,9 @@ func Sum(numbers [5]int) int {
 }
 ```
 
-- `range` returns two values; the index and value. In this case, `_` from the code is ignored since it is not used. 
+- `range` returns two values; the index and value. In this case, `_` from the code is ignored since it is not used
+- Interestingly, a function expecting a `[5]int` as an argument type and is passed with a `[4]int` will not compile. This can be the same as passing an `int` into a function as an argument that expects a `string`. 
+- Due to that, `slices` would usually be used instead because it does not encode the size eof the collection and instead can have any size.
 
 ## About Tests
 
