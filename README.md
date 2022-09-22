@@ -87,3 +87,7 @@ func BenchmarkRepeat(b *testing.B) {
 ```
 
 - To run the benchmark - `go test -bench="."`. 
+
+### Go Arrays and Slices
+
+- `go test -cover` is used to check how much of code has been tested.
