@@ -68,6 +68,16 @@ func Sum(numbers [5]int) int {
 - Cannot use equality operators with slices. Instead, should use `reflect.DeepEqual` which is useful for seeing if any 2 variables are the same. 
 - Worth noting that `DeepEqual` doesn't type safe check values. 
 - Instead of `make` which restricts the capacity of a slice, we can use the `append` function instead which appends new values to a slice - effectively allowing slice to grow in capacity as needed and will return a new slice along with the new appended value.
+- Example of a good practice to slice and taking only subset of the array by utilizing  the `copy` function and prevent memory wastage as shown in the example below
+
+```
+a := make([]int, 1e6) // slice "a" with len = 1 million
+b := a[:2] // even though "b" len = 2, it points to the same the underlying array "a" points to
+
+c := make([]int, len(b)) // create a copy of the slice so "a" can be garbage collected
+copy(c, b)
+fmt.Println(c)
+```
 
 ## About Tests
 
