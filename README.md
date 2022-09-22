@@ -47,6 +47,22 @@ for i <= 3 {
 }
 ```
 
+### Array
+
+- When iterating through an array, we can use `range` to iterate through array instead. An example is as shown below.
+
+```
+func Sum(numbers [5]int) int {
+	sum := 0
+	for _, number := range numbers {
+		sum += number
+	}
+	return sum
+}
+```
+
+- `range` returns two values; the index and value. In this case, `_` from the code is ignored since it is not used. 
+
 ## About Tests
 
 ### Go Hello World
