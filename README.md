@@ -47,7 +47,7 @@ for i <= 3 {
 }
 ```
 
-### Array
+### Array & Slices
 
 - When iterating through an array, we can use `range` to iterate through array instead. An example is as shown below.
 
@@ -64,7 +64,9 @@ func Sum(numbers [5]int) int {
 - `range` returns two values; the index and value. In this case, `_` from the code is ignored since it is not used
 - Interestingly, a function expecting a `[5]int` as an argument type and is passed with a `[4]int` will not compile. This can be the same as passing an `int` into a function as an argument that expects a `string`. 
 - Due to that, `slices` would usually be used instead because it does not encode the size eof the collection and instead can have any size.
-- Cannot use equality operators with slices. Instead, should use `reflect.DeepEqual` which is useful for seeing if any 2 variables are the same.
+- Creating slices would be as simple as `[]int` and `make([]int, sizeOfSlice)` - allows us to create a new slice of the type inserted as the first argument along with the size of the slice as the second argument.
+- Cannot use equality operators with slices. Instead, should use `reflect.DeepEqual` which is useful for seeing if any 2 variables are the same. 
+- Worth noting that `DeepEqual` doesn't type safe check values. 
 
 ## About Tests
 
