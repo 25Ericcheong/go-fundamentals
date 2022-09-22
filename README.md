@@ -37,6 +37,15 @@ func Add(x, y int) int {
 ### Iteration
 
 - Go only has `for` loop used for anything that involves iteration. 
+- Apart from the example included in the Iterations directory. This is a `for` loop variation example that I thought was quite cool and would like to be mindful of.
+
+```
+i := 1
+for i <= 3 {
+    fmt.Println(i)
+    i = i + 1
+}
+```
 
 ## About Tests
 
