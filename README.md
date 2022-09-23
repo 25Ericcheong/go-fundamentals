@@ -98,7 +98,7 @@ fmt.Printf("%T %v\n", z, z)
 
 ### Structs, Methods & Interfaces
 
-- 
+- Struct is a named collection of fields where we can store data.
 
 ## About Tests
 
