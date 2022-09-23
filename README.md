@@ -96,6 +96,10 @@ fmt.Printf("%T %v\n", y, y)
 fmt.Printf("%T %v\n", z, z)
 ```
 
+### Structs, Methods & Interfaces
+
+- 
+
 ## About Tests
 
 ### Go Hello World
