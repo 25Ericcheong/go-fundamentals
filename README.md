@@ -132,3 +132,18 @@ func BenchmarkRepeat(b *testing.B) {
 ### Structs, Methods and Interfaces
 
 - Table driven tests are useful when wanting to build a list of test cases that can be tested in the same manner.
+- When creating table driven tests, it is important to name each anonymous struct type within the slice since it may have multiple fields and this will help with readability.
+- Instead of the following error logged below when a test case fails:
+
+```
+--- FAIL: TestArea (0.00s)
+    shape_test.go:30: got 36 want 31
+```
+
+- A simple change to the format within the `Errorf` from `t.Errorf("got %g want %g", got, tt.hasArea)` to `t.Errorf("%#v got %g want %g", tt.shape, got, tt.hasArea)` will allow us to find out the struct involved in the failed test as well. As such, the output log will be this instead (which would be more ideal):
+
+```
+--- FAIL: TestArea (0.00s)
+    shape_test.go:30: shape.Triangle{Width:12, Height:6} got 36 want 31
+```
+
