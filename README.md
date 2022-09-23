@@ -99,6 +99,7 @@ fmt.Printf("%T %v\n", z, z)
 ### Structs, Methods & Interfaces
 
 - Struct is a named collection of fields where we can store data. Worth noting that the syntax for writing a method for a struct is as such `func (receiverName ReceiverType) MethodName(args)`.
+- In Go, there is no need to explicitly have a `struct` implement an `interace`. It implicitly ensures structs implements the interfaces with the same method signature. 
 
 ## About Tests
 
