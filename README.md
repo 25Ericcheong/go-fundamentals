@@ -147,3 +147,4 @@ func BenchmarkRepeat(b *testing.B) {
     shape_test.go:30: shape.Triangle{Width:12, Height:6} got 36 want 31
 ```
 
+- With proper definitions of each test cases, we can specifically test something within our table. `go test -run TestArea/Rectangle` will test the `Rectangle` test case only.
