@@ -98,7 +98,7 @@ fmt.Printf("%T %v\n", z, z)
 
 ### Structs, Methods & Interfaces
 
-- Struct is a named collection of fields where we can store data.
+- Struct is a named collection of fields where we can store data. Worth noting that the syntax for writing a method for a struct is as such `func (receiverName ReceiverType) MethodName(args)`.
 
 ## About Tests
 
