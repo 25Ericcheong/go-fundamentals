@@ -96,10 +96,11 @@ fmt.Printf("%T %v\n", y, y)
 fmt.Printf("%T %v\n", z, z)
 ```
 
-### Structs, Methods & Interfaces
+### Structs, Methods and Interfaces
 
 - Struct is a named collection of fields where we can store data. Worth noting that the syntax for writing a method for a struct is as such `func (receiverName ReceiverType) MethodName(args)`.
 - In Go, there is no need to explicitly have a `struct` implement an `interace`. It implicitly ensures structs implements the interfaces with the same method signature. 
+- Anonymous struct can be used in table driven test to inclcude fields for the struct itself and the expected value which will be looped through for test cases.
 
 ## About Tests
 
@@ -127,3 +128,7 @@ func BenchmarkRepeat(b *testing.B) {
 ### Go Arrays and Slices
 
 - `go test -cover` is used to check how much of code has been tested.
+
+### Structs, Methods and Interfaces
+
+- Table driven tests are useful when wanting to build a list of test cases that can be tested in the same manner.
