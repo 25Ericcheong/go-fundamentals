@@ -108,6 +108,16 @@ fmt.Printf("%T %v\n", z, z)
 - Calling a function or method - the arguments are copied. Example when calling `func (w Wallet) Deposit(amount int)` the `w` is a copy of whatever we call the method from. If we have differe methods being called from different parts of our code, the arguments called within the methods will have its own memory address. The `struct` defined with a variable within a different script would also have its own designated memory address for its variable as well. This would mean that manipulating a variable within a method from a different script would not affect a variable defined within the `struct` that has been initialized in a different script.
 - This is where `pointers` come into play. Pointers would allow us to point to some values and then let us to change them. So, rather than having a copy, we would take a pointer to that variable / object so that we can change the original values within it.
 - Go allow us to create a different type on top of existing ones to be more descriptive and explicit about why we have a specific `struct` to represent something. The syntax would be `type MyName OriginalType`. 
+- With a new type defined, we can now declare methods on them. This allow us to be add domain specific functionality on top of existing types. In this case, `stringer` interface was implemented on our type (called Bitcoin). This interface will allow us to define how our type will be printed when used with the `%s` format string in prints. Example of code is as such.
+
+```
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%d BTC", b)
+}
+```
+
+- 
+
 
 ## About Tests
 
