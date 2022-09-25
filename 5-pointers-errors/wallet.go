@@ -24,6 +24,7 @@ var ErrorInsufficientFunds = errors.New("amount wanting to withdraw is more than
 
 func (w *Wallet) Withdraw(amount Bitcoin) error {
 
+	// error is a type of interace and can be nil in Go
 	if amount > w.balance {
 		return ErrorInsufficientFunds
 	}
