@@ -119,6 +119,11 @@ func (b Bitcoin) String() string {
 - `nil` is the same as `null`. Errors can be `nil` because a return type `error` is an interface. A function that takes arguments or returns values that are interfaces, can be nillable.
 - Important to have assertion for when error is not supposed to be returned as well. This can be checked with the following `go packages` - `go install github.com/kisielk/errcheck@latest` and runing `errcheck .` within the directory to check if we have missed anything out. 
 
+### Maps
+
+- Store items by `key` and look them up quicky. Similar to a dictionary. Declaring `map` will require two types. First would be the key type (written within the `[]`) and the second would be the value type, which goes after the `[]`. Note that the `key` can only be a comparable type.
+- 
+
 
 ## About Tests
 
