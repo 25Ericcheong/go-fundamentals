@@ -172,3 +172,7 @@ func BenchmarkRepeat(b *testing.B) {
 ```
 
 - With proper definitions of each test cases, we can specifically test something within our table. `go test -run TestArea/Rectangle` will test the `Rectangle` test case only.
+
+### Maps
+
+- `Error` type can be converted ot string with the `.Error()`` method.
