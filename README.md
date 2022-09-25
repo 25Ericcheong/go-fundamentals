@@ -116,7 +116,7 @@ func (b Bitcoin) String() string {
 }
 ```
 
-- 
+- `nil` is the same as `null`. Errors can be `nil` because a return type `error` is an interface. A function that takes arguments or returns values that are interfaces, can be nillable.
 
 
 ## About Tests
