@@ -102,6 +102,12 @@ fmt.Printf("%T %v\n", z, z)
 - In Go, there is no need to explicitly have a `struct` implement an `interace`. It implicitly ensures structs implements the interfaces with the same method signature. 
 - Anonymous struct can be used in table driven test to inclcude fields for the struct itself and the expected value which will be looped through for test cases.
 
+### Pointers and Errors
+
+- If a symbol (variable, types, functions, etc.) starts with a lowercase symbol then it is private.
+- Calling a function or method - the arguments are copied. Example when calling `func (w Wallet) Deposit(amount int)` the `w` is a copy of whatever we call the method from. If we have differe methods being called from different parts of our code, the arguments called within the methods will have its own memory address. The `struct` defined with a variable within a different script would also have its own designated memory address for its variable as well. This would mean that manipulating a variable within a method from a different script would not affect a variable defined within the `struct` that has been initialized in a different script.
+- This is where `pointers` come into play.
+
 ## About Tests
 
 ### Go Hello World
