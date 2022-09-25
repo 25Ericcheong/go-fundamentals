@@ -122,7 +122,8 @@ func (b Bitcoin) String() string {
 ### Maps
 
 - Store items by `key` and look them up quicky. Similar to a dictionary. Declaring `map` will require two types. First would be the key type (written within the `[]`) and the second would be the value type, which goes after the `[]`. Note that the `key` can only be a comparable type.
-- 
+- Similar to how we can create a `custom type` for readability from previous example. We can also do the same and create a `custom type` called `Dictionary` that thinly wraps around `map`. 
+- With this, we can then create a method that can be used to search up for values with keys when/if the `custom type` is created. Note that, the method can only be used when the `custom type` has been instantiated.
 
 
 ## About Tests
