@@ -125,6 +125,7 @@ func (b Bitcoin) String() string {
 - Similar to how we can create a `custom type` for readability from previous example. We can also do the same and create a `custom type` called `Dictionary` that thinly wraps around `map`. 
 - With this, we can then create a method that can be used to search up for values with keys when/if the `custom type` is created. Note that, the method can only be used when the `custom type` has been instantiated.
 - When attempting to access a value, the `map` returns 2 values. First would ne the value that corresponds to the key amd the second is a `boolean` that indicates if the key was found successfully.
+- Interestingly, do not need to ensure pointers for `map` type. Because, a map value is a pointer to a runtime.hmap structure. As such, we should never initialize an empty map variable like this `var m map[string]string`. Instead, we can initialize an empty map like this `var dictionary = map[string]string{}` or with the `make` like this `var dictionary = make(map[string]string)`. This prevent a runtime panic as we will create an empty `hash map`.
 
 ## About Tests
 
