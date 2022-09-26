@@ -130,6 +130,29 @@ func (b Bitcoin) String() string {
 ### Dependency Injection
 
 - Helps with testing and allows us to write general-purpose functions. Worth noting that the `Writer` interface will be seen quite regularly. It is a great general purpose interface for "put this data somewhere".
+- How to test something that prints to console (`stdout`). Will need to inject (meaning - pass in) the dependency of printing. In example, we try to test something that prints (`Printf`).
+- Upon inspection, `Printf` implementation is as such:
+
+```
+// It returns the number of bytes written and any write error encountered.
+func Printf(format string, a ...interface{}) (n int, err error) {
+	return Fprintf(os.Stdout, format, a...)
+}
+```
+
+- `Printf` calls `Fprintf` while passing in `os.Stdout`. What is `os.Stdout`?? As such, further inspection of `Fprintf` then leads to the following implementation:
+
+```
+func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) {
+	p := newPrinter()
+	p.doPrintf(format, a)
+	n, err = w.Write(p.buf)
+	p.free()
+	return
+}
+```
+
+- We can see that `os.Stdout` implements `io.Writer`.
 
 ## About Tests
 
