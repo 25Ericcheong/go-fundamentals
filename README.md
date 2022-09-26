@@ -127,6 +127,10 @@ func (b Bitcoin) String() string {
 - When attempting to access a value, the `map` returns 2 values. First would ne the value that corresponds to the key amd the second is a `boolean` that indicates if the key was found successfully.
 - Interestingly, do not need to ensure pointers for `map` type. Because, a map value is a pointer to a runtime.hmap structure. As such, we should never initialize an empty map variable like this `var m map[string]string`. Instead, we can initialize an empty map like this `var dictionary = map[string]string{}` or with the `make` like this `var dictionary = make(map[string]string)`. This prevent a runtime panic as we will create an empty `hash map`.
 
+### Dependency Injection
+
+- Helps with testing and allows us to write general-purpose functions. Worth noting that the `Writer` interface will be seen quite regularly. It is a great general purpose interface for "put this data somewhere".
+
 ## About Tests
 
 ### Go Hello World
