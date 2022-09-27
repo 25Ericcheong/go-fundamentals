@@ -152,7 +152,15 @@ func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) {
 }
 ```
 
-- We can see that `os.Stdout` implements `io.Writer`.
+- We can see that `os.Stdout` implements `io.Writer`. The interface can be found to look like the following:
+
+```
+type Writer interface {
+	Write(p []byte) (n int, err error)
+}
+```
+
+- The `os.Stdout` implements the method - Write which explains why it implements the `Writer` interface. Also worth noting that `Buffer` type from the `bytes` package also implement the `Writer` interface.
 
 ## About Tests
 
