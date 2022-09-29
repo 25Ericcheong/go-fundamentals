@@ -1,4 +1,4 @@
-package dependencyinject
+package main
 
 import (
 	"bytes"
