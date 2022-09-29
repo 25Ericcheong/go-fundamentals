@@ -140,7 +140,7 @@ func Printf(format string, a ...interface{}) (n int, err error) {
 }
 ```
 
-- `Printf` calls `Fprintf` while passing in `os.Stdout`. What is `os.Stdout`?? As such, further inspection of `Fprintf` then leads to the following implementation:
+- `Printf` calls `Fprintf` while passing in `os.Stdout`. What is `os.Stdout`? As such, further inspection of `Fprintf` then leads to the following implementation:
 
 ```
 func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) {
@@ -152,7 +152,7 @@ func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) {
 }
 ```
 
-- We can see that `os.Stdout` implements `io.Writer`. The interface can be found to look like the following:
+- We can see that `os.Stdout` implements `io.Writer`. Note, `io.Writer` interface could be seen quite often because it is a great general purpose interface for "put this data somewhere". The interface can be found to look like the following:
 
 ```
 type Writer interface {
@@ -160,7 +160,7 @@ type Writer interface {
 }
 ```
 
-- The `os.Stdout` implements the method - Write which explains why it implements the `Writer` interface. Also worth noting that `Buffer` type from the `bytes` package also implement the `Writer` interface.
+- The `os.Stdout` implements the method - `Write` which explains why it implements the `Writer` interface. Also worth noting that `Buffer` type from the `bytes` package also implement the `Writer` interface because it implements the same method from the `Writer` interface - `Write`.
 
 ## About Tests
 
