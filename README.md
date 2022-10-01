@@ -226,3 +226,4 @@ func BenchmarkRepeat(b *testing.B) {
 ## Additional Investigation
 
 - Getting more familiar with Go Standard Library (may help with writing dependency injection for testing purposes)
+- Understanding the purpose of `Buffer` and `Writer`
