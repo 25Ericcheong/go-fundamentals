@@ -161,10 +161,16 @@ type Writer interface {
 ```
 
 - The `os.Stdout` implements the method - `Write` which explains why it implements the `Writer` interface. Also worth noting that `Buffer` type from the `bytes` package also implement the `Writer` interface because it implements the same method from the `Writer` interface - `Write`.
+- Worth noting that `Writer` interface is general purpose and is used in a variety of ways.
+
 - Hard-wired dependencies or global state would make testing hard and slow. Example, global database connection pool used by a service later will make testing difficult and slow because it needs to be initialized and isolated for proper testing. Dependency injection will allow us to inject in a database dependency with an interface so that we can mock out with something we can control.
 - Simnilar to example shown in the dependency example, test was refactored so that we could control where data was written by `injecting a dependency` (with an interface).
 - `Separate your concerns`, decoupling where data goes from how to generate it. If a function has too many responsibilities (generating and writing to db or handling HTTP requests and doing domain level logic) then dependency injection is what we need.
 - Code can be reused in different contexts - new dependencies can be used with our function (as long as same interface is used / same dependency is injected) 
+
+### Mocking
+
+- 
 
 ## About Tests
 
@@ -216,3 +222,7 @@ func BenchmarkRepeat(b *testing.B) {
 ### Maps
 
 - `Error` type can be converted ot string with the `.Error()`` method.
+
+## Additional Investigation
+
+- Getting more familiar with Go Standard Library (may help with writing dependency injection for testing purposes)
