@@ -168,10 +168,6 @@ type Writer interface {
 - `Separate your concerns`, decoupling where data goes from how to generate it. If a function has too many responsibilities (generating and writing to db or handling HTTP requests and doing domain level logic) then dependency injection is what we need.
 - Code can be reused in different contexts - new dependencies can be used with our function (as long as same interface is used / same dependency is injected) 
 
-### Mocking
-
-- 
-
 ## About Tests
 
 ### Go Hello World
@@ -222,6 +218,12 @@ func BenchmarkRepeat(b *testing.B) {
 ### Maps
 
 - `Error` type can be converted ot string with the `.Error()`` method.
+
+### Mocking
+
+- Tests with time intervals (say ensuring that we want 1 second sleep between each second) will slow down developer productivity. We would not want tests to be dependent on dependencies like `Sleep`. 
+- Instead, we could define dependency as `interface`. Allowing us to use real `Sleep` in `main` and a `spy sleeper` in tests. 
+- `Spies` are a kind of mock which can record how a dependency is used, arguments sent in, how many times it has been called, etc.
 
 ## Additional Investigation
 
