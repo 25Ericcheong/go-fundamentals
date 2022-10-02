@@ -229,3 +229,4 @@ func BenchmarkRepeat(b *testing.B) {
 
 - Getting more familiar with Go Standard Library (may help with writing dependency injection for testing purposes)
 - Understanding the purpose of `Buffer` and `Writer`
+- Look into the term Test Doubles (https://martinfowler.com/bliki/TestDouble.html)
