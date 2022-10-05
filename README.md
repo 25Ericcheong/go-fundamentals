@@ -173,6 +173,8 @@ type Writer interface {
 - Having more than one thing in progress. An operation that does not block code in Go will run in a seaprate process called `goroutine`. To start a new `goroutine` we turn a function into a `go` statement by putting the keyword `go` in front of the function.
 - Only way to start a `goroutine` is to have `go` keyword in front of function call, usually use anonymous functions.
 - Useful because they can be executed at the sane time they are declared - by having `()` after the ending curly brace. Next, they maintain access to the lexical scope they are defined in - all variables available at the point when anonymous function is declared are also avaialble in the body of the function. 
+- If not handled correctly, will be hard to predict what is going to happen. Which is why tests are written, to know we are handling concurrency predictably. 
+- Ensure that each `goroutine` doesn't reference the same item when a new `goroutine` process is created. Getting the last item only means that the processes before that is referring to the same item of the `map`. We have to make sure that the variable within the `goroutine` is fixed and we do this by defining a parameter for the anonymous function.
 
 ## About Tests
 
