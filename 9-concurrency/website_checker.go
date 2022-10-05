@@ -20,9 +20,11 @@ func CheckWebsites(wc WebsiteChecker, urls []string) map[string]bool {
 		}(url)
 	}
 
+	// for loop iterates once for each of the urls
 	for i := 0; i < len(urls); i++ {
 		// receive expression
 		// assign values that we have received (inserted into the channel) to a variable
+		// as we iterate through, each value gets assigned to variable (replacing previous assigned value)
 		// then use the variable to update the results
 		r := <-resultChannel
 		results[r.string] = r.bool
