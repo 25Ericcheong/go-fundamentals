@@ -168,6 +168,10 @@ type Writer interface {
 - `Separate your concerns`, decoupling where data goes from how to generate it. If a function has too many responsibilities (generating and writing to db or handling HTTP requests and doing domain level logic) then dependency injection is what we need.
 - Code can be reused in different contexts - new dependencies can be used with our function (as long as same interface is used / same dependency is injected) 
 
+### Concurrency
+
+- Having more than one thing in progress. An operation that does not block code in Go will run in a seaprate process called `goroutine`. To start a new `goroutine` we turn a function into a `go` statement by putting the keyword `go` in front of the function.
+
 ## About Tests
 
 ### Go Hello World
