@@ -178,7 +178,11 @@ type Writer interface {
 - Possible for `fatal error: concurrent map writes` to occur. This is due to possibly multiple `gororutines` writing to the map. As such, we need to spot race conditions with the built in `race detector`.
 - This can be solved by coordinating goroutines using `channels`. Channels are Go data structure that can both receive and send values. This will allow communication between different processes. `chan` is the type - which stands for channel.
 - A `send statement` would be `resultChannel <- result{u, wc(u)}` which in this case - we are sending `result` struct to the `resultChannel`.
-- On the other hand, a `receive expression` is as such `r := <-resultChannel` where the channel is now on the right and the variable that we are assigninng to is on the left.  
+- On the other hand, a `receive expression` is as such `r := <-resultChannel` where the channel is now on the right and the variable that we are assigninng to is on the left. 
+
+### Select 
+
+- Example included is a scenario where we try to test with real websites to test our logic.
 
 ## About Tests
 
