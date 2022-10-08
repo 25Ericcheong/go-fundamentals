@@ -241,8 +241,13 @@ func BenchmarkRepeat(b *testing.B) {
 - Instead, we could define dependency as `interface`. Allowing us to use real `Sleep` in `main` and a `spy sleeper` in tests. 
 - `Spies` are a kind of mock which can record how a dependency is used, arguments sent in, how many times it has been called, etc.
 
+### Select
+
+- `http.HandlerFunc` is a type that looks like `type HandlerFunc func(ResponseWriter, *Request)`. The handler takes a `ResponseWriter` and a `Request`. Note, this is also how a real HTTP server is written in Go. For testing purposes, the `http.HandlerFunc` is currently being wrapped in the `httptest.NewServer` for testing purposes.
+
 ## Additional Investigation
 
 - Get more familiar with Go Standard Library (may help with writing dependency injection for testing purposes)
 - Understanding the purpose of `Buffer` and `Writer`
 - Look into the term Test Doubles (https://martinfowler.com/bliki/TestDouble.html)
+- To mock HTTP server, can look at standard library - `net/http/httptest`
