@@ -244,6 +244,7 @@ func BenchmarkRepeat(b *testing.B) {
 ### Select
 
 - `http.HandlerFunc` is a type that looks like `type HandlerFunc func(ResponseWriter, *Request)`. The handler takes a `ResponseWriter` and a `Request`. Note, this is also how a real HTTP server is written in Go. For testing purposes, the `http.HandlerFunc` is currently being wrapped in the `httptest.NewServer` for testing purposes.
+- The `httptest.NewServer` finds an open port to listen on for testing purposes which can then be closed after tested.
 
 ## Additional Investigation
 
