@@ -251,4 +251,4 @@ func BenchmarkRepeat(b *testing.B) {
 - Get more familiar with Go Standard Library (may help with writing dependency injection for testing purposes)
 - Understanding the purpose of `Buffer` and `Writer`
 - Look into the term Test Doubles (https://martinfowler.com/bliki/TestDouble.html)
-- To mock HTTP server, can look at standard library - `net/http/httptest`
+- To mock HTTP server, look at standard library - `net/http/httptest`
