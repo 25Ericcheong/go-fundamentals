@@ -246,7 +246,8 @@ func BenchmarkRepeat(b *testing.B) {
 - `http.HandlerFunc` is a type that looks like `type HandlerFunc func(ResponseWriter, *Request)`. The handler takes a `ResponseWriter` and a `Request`. Note, this is also how a real HTTP server is written in Go. For testing purposes, the `http.HandlerFunc` is currently being wrapped in the `httptest.NewServer` for testing purposes.
 - The `httptest.NewServer` finds an open port to listen on for testing purposes which can then be closed after tested.
 - `defer` is a keyword that can be used to as a prefix on a function call so that the call of the function will be done at the end of the containing function. Most commonly used to cleanup resources - closing a file or closing a server so that it does not continue to listen to a port (in example)
-- This is used early on but called at the end to improve readability
+- This is used early on but called at the end to improve readability.
+- Always `make` channels. `ch := make(chan struct{})` is better over `var ch chan struct{}` because with `var`, variable will be initialised with the zero value of the type. `string` will be `""` and `int` will be `0`. For channels, the zero value is `nil` and sending it with `<-` will block forever because we can't send `nil` channels.
 
 ## Additional Investigation
 
