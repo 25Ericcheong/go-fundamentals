@@ -189,6 +189,10 @@ type Writer interface {
 - Recall that you can wait for values to be sent to a channel with `myVar := <-ch`. This is a blocking call, as you are waiting for a value. `select` lets us wait on multiple channels. The first one to send a value "wins" and the code underneath the `case` is executed. 
 - `time.After` returns a `chan` and will send a signal down it after amount of time defined. 
 
+### Reflection
+
+- `interface{}` used for when we don't know what the type is at compile time. Generally less performant (since need to do additional checks at runtime). As such, should only use reflection if you really need to.
+
 ## About Tests
 
 ### Go Hello World
