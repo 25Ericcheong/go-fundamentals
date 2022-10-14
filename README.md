@@ -192,6 +192,7 @@ type Writer interface {
 ### Reflection
 
 - `interface{}` used for when we don't know what the type is at compile time. Generally less performant (since need to do additional checks at runtime). As such, should only use reflection if you really need to.
+- `reflect` used to attempt to look at the `interface{}` any type variable and look at its properties. The `reflect package` then uses the `ValueOf` which returns the `Value` of a given variable. We then have to make an assumption of the type. 
 
 ## About Tests
 

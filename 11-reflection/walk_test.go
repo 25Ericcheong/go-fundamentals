@@ -10,6 +10,7 @@ func TestWalk(t *testing.T) {
 		Name string
 	}{expected}
 
+	// passed an anonymous func as second parameter into walk
 	walk(x, func(input string) {
 		got = append(got, input)
 	})
