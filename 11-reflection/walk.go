@@ -5,19 +5,24 @@ import "reflect"
 func walk(x interface{}, fn func(input string)) {
 	val := getValue(x)
 
-	// previous code handled slice type first and then struct
-	// better to see if it is a slice type, then struct type because we can send slice's item's into walk again and get the required fields
+	numberOfValues := 0
+	var getField func(int) reflect.Value
+
+	// reshuffled code to look at strings (for the purpose of recursion and ensuring that the next 2 cases do not get executed by accident)
+	// now, we reuse the functions for given type and use them in the for loop rather than having 2 duplicate for loops that were very identical
 	switch val.Kind() {
-	case reflect.Struct:
-		for i := 0; i < val.NumField(); i++ {
-			walk(val.Field(i).Interface(), fn)
-		}
-	case reflect.Slice:
-		for i := 0; i < val.Len(); i++ {
-			walk(val.Index(i).Interface(), fn)
-		}
 	case reflect.String:
 		fn(val.String())
+	case reflect.Struct:
+		numberOfValues = val.NumField()
+		getField = val.Field
+	case reflect.Slice:
+		numberOfValues = val.Len()
+		getField = val.Index
+	}
+
+	for i := 0; i < numberOfValues; i++ {
+		walk(getField(i).Interface(), fn)
 	}
 }
 
