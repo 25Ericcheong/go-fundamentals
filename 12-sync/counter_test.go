@@ -5,13 +5,18 @@ import (
 	"testing"
 )
 
+func NewCounter() *Counter {
+	return &Counter{}
+}
+
 func TestCounter(t *testing.T) {
 	t.Run("incrementing the counter 3 times leaves it at 3", func(t *testing.T) {
-		counter := Counter{}
+		counter := NewCounter()
 		counter.Inc()
 		counter.Inc()
 		counter.Inc()
 
+		// will get an error because we don't have &Counter but our counter does not need a pointer - in fact we only used pointer to prevent the duplication of mutex - as such we need to create a function to clearly indicate that the type does not need to be initialized on its own
 		assertCounter(t, counter, 3)
 	})
 
@@ -32,7 +37,8 @@ func TestCounter(t *testing.T) {
 	})
 }
 
-func assertCounter(t testing.TB, got Counter, want int) {
+// Include a pointer because we do not want method to create a duplicate of the mutex
+func assertCounter(t testing.TB, got *Counter, want int) {
 	t.Helper()
 	if got.Value() != want {
 		t.Errorf("got %d, want %d", got.Value(), want)

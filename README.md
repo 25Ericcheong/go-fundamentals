@@ -204,6 +204,7 @@ type Writer interface {
 - If we use `Wait` before any of our assertions in testing environment, we can be sure that all `goroutines` have been attempted.
 - Test will fail when we try to allow multiple `goroutines` to mutate a value at the same time. As such we need to use a lock - with a `Mutex`. 
 - Meaning, any `goroutine` that calls a method that calls the `Lock` method will prevent other goroutines from calling the same method - the rest will need to wait till the method has been `Unlock`ed.
+- Should not embed `sync.Mutex` into struct because that will mean that the methods of this type will be part of the public interface - meaning we are allowing other code to couple themselves to it. 
 
 ## About Tests
 
