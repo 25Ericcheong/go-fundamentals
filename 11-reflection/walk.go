@@ -3,11 +3,14 @@ package main
 import "reflect"
 
 func walk(x interface{}, fn func(input string)) {
-	val := reflect.ValueOf(x)
+	val := getValue(x)
 
-	// NumField can't be used on a pointer value, will need to extract underlying value
-	if val.Kind() == reflect.Ptr {
-		val = val.Elem()
+	// recursion, call walk to look into struct items within slice and call walk again if the field found is a struct
+	if val.Kind() == reflect.Slice {
+		for i := 0; i < val.Len(); i++ {
+			walk(val.Index(i).Interface(), fn)
+		}
+		return
 	}
 
 	for i := 0; i < val.NumField(); i++ {
@@ -20,4 +23,14 @@ func walk(x interface{}, fn func(input string)) {
 			walk(field.Interface(), fn)
 		}
 	}
+}
+
+func getValue(x interface{}) reflect.Value {
+	val := reflect.ValueOf(x)
+
+	if val.Kind() == reflect.Ptr {
+		val = val.Elem()
+	}
+
+	return val
 }

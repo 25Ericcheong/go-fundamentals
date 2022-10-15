@@ -194,7 +194,8 @@ type Writer interface {
 - `interface{}` used for when we don't know what the type is at compile time. Generally less performant (since need to do additional checks at runtime). As such, should only use reflection if you really need to.
 - `reflect` used to attempt to look at the `interface{}` any type variable and look at its properties. The `reflect package` then uses the `ValueOf` which returns the `Value` of a given variable. We then have to make an assumption of the type.
 - Since compiler will not help us with identifying if something is the right type or not, we will need to check the type of specific fields to ensure that they are of the right type at runtime.
-- If `interface{}`, is a pointer. We will need to check for `Ptr` with the reflect package as we will need to acquire the underlyning value with `Elem()` before accessing its fields. 
+- If `interface{}`, is a pointer. We will need to check for `Ptr` with the reflect package as we will need to acquire the underlyning value with `Elem()` before accessing its fields.
+- If it is a `slice` type with `struct` type as its items, we can't call `NumField` on it directly. As `NumField` can only be called on `struct` type not a `slice`, as such, we will need to access each item of the `slice` and call `NumField` on the item instead. 
 
 ## About Tests
 
