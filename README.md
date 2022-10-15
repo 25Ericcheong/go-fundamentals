@@ -196,7 +196,7 @@ type Writer interface {
 - Since compiler will not help us with identifying if something is the right type or not, we will need to check the type of specific fields to ensure that they are of the right type at runtime.
 - If `interface{}`, is a pointer. We will need to check for `Ptr` with the reflect package as we will need to acquire the underlyning value with `Elem()` before accessing its fields.
 - If it is a `slice` type with `struct` type as its items, we can't call `NumField` on it directly. As `NumField` can only be called on `struct` type not a `slice`, as such, we will need to access each item of the `slice` and call `NumField` on the item instead.
-- Note, `map` is similar to `struct` but keys are unknown at compile time 
+- Note, `map` is similar to `struct` but keys are unknown at compile time
 
 ## About Tests
 
@@ -259,6 +259,10 @@ func BenchmarkRepeat(b *testing.B) {
 
 - `http.HandlerFunc` is a type that looks like `type HandlerFunc func(ResponseWriter, *Request)`. The handler takes a `ResponseWriter` and a `Request`. Note, this is also how a real HTTP server is written in Go. For testing purposes, the `http.HandlerFunc` is currently being wrapped in the `httptest.NewServer` for testing purposes.
 - The `httptest.NewServer` finds an open port to listen on for testing purposes which can then be closed after tested.
+
+### Reflection
+
+- Worth noting if we are testing and storing our test case values in an array of something. The order may also affect the results of our test when it comes to utilizing `map` types. We need to ensure order should not matter and the test case accounts for that as well.
 
 ## Additional Investigation
 
