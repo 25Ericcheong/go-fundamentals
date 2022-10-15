@@ -5,23 +5,19 @@ import "reflect"
 func walk(x interface{}, fn func(input string)) {
 	val := getValue(x)
 
-	// recursion, call walk to look into struct items within slice and call walk again if the field found is a struct
-	if val.Kind() == reflect.Slice {
+	// previous code handled slice type first and then struct
+	// better to see if it is a slice type, then struct type because we can send slice's item's into walk again and get the required fields
+	switch val.Kind() {
+	case reflect.Struct:
+		for i := 0; i < val.NumField(); i++ {
+			walk(val.Field(i).Interface(), fn)
+		}
+	case reflect.Slice:
 		for i := 0; i < val.Len(); i++ {
 			walk(val.Index(i).Interface(), fn)
 		}
-		return
-	}
-
-	for i := 0; i < val.NumField(); i++ {
-		field := val.Field(i)
-
-		switch field.Kind() {
-		case reflect.String:
-			fn(field.String())
-		case reflect.Struct:
-			walk(field.Interface(), fn)
-		}
+	case reflect.String:
+		fn(val.String())
 	}
 }
 
