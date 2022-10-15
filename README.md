@@ -270,3 +270,4 @@ func BenchmarkRepeat(b *testing.B) {
 - Understanding the purpose of `Buffer` and `Writer`
 - Look into the term Test Doubles (https://martinfowler.com/bliki/TestDouble.html)
 - To mock HTTP server, look at standard library - `net/http/httptest`
+- To read more about reflection - https://go.dev/blog/laws-of-reflection
