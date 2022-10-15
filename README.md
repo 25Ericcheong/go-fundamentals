@@ -198,6 +198,11 @@ type Writer interface {
 - If it is a `slice` type with `struct` type as its items, we can't call `NumField` on it directly. As `NumField` can only be called on `struct` type not a `slice`, as such, we will need to access each item of the `slice` and call `NumField` on the item instead.
 - Note, `map` is similar to `struct` but keys are unknown at compile time
 
+### Sync
+
+- `sync.WaitGroup` is a way of synchronising concurrent processes: `WaitGroup` waits for a collection of goroutines to finish. The main goroutine calls `Add` to set the number of goroutines to wait for. Then each of the goroutines runs and calls `Done` when finished. At the same time, `Wait` can be used to block until all goroutines have finished.
+- If we use `Wait` before any of our assertions in testing environment, we can be sure that all `goroutines` have been attempted.
+
 ## About Tests
 
 ### Go Hello World
