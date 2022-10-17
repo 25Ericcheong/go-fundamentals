@@ -210,6 +210,8 @@ type Writer interface {
 
 - Used to manage long-running processes. We need to be able to handle a long process that could get cancelled unexpectingly. 
 - Important to derive contexts so that cancellations are propagated throughout call stack for given request. 
+- `context` has a method `Done()` which returns a channel which gets sent a signal when context is "done" or "cancelled". 
+- Incoming requests to a server should create a `Context, and outgoing calls to servers should accept a Context. The chain of function calls between them must propogate the Context so that when a Context is cancelled, all Contexts derived from it are also canceled.
 
 ## About Tests
 
@@ -284,4 +286,4 @@ func BenchmarkRepeat(b *testing.B) {
 - Look into the term Test Doubles (https://martinfowler.com/bliki/TestDouble.html)
 - To mock HTTP server, look at standard library - `net/http/httptest`
 - To read more about reflection - https://go.dev/blog/laws-of-reflection
-- To read more about context - https://go.dev/blog/context
+- To read more about context - https://go.dev/blog/context. Look at examples and try to better understand the use of context
