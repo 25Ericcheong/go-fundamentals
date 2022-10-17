@@ -206,6 +206,10 @@ type Writer interface {
 - Meaning, any `goroutine` that calls a method that calls the `Lock` method will prevent other goroutines from calling the same method - the rest will need to wait till the method has been `Unlock`ed.
 - Should not embed `sync.Mutex` into struct because that will mean that the methods of this type will be part of the public interface - meaning we are allowing other code to couple themselves to it. 
 
+### Context
+
+- Used to manage long-running processes. We need to be able to handle a long process that could get cancelled unexpectingly. 
+
 ## About Tests
 
 ### Go Hello World
