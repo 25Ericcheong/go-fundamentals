@@ -209,6 +209,7 @@ type Writer interface {
 ### Context
 
 - Used to manage long-running processes. We need to be able to handle a long process that could get cancelled unexpectingly. 
+- Important to derive contexts so that cancellations are propagated throughout call stack for given request. 
 
 ## About Tests
 
@@ -283,3 +284,4 @@ func BenchmarkRepeat(b *testing.B) {
 - Look into the term Test Doubles (https://martinfowler.com/bliki/TestDouble.html)
 - To mock HTTP server, look at standard library - `net/http/httptest`
 - To read more about reflection - https://go.dev/blog/laws-of-reflection
+- To read more about context - https://go.dev/blog/context
