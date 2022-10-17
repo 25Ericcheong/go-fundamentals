@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -32,20 +31,16 @@ func TestServer(t *testing.T) {
 		svr := Server(store)
 
 		request := httptest.NewRequest(http.MethodGet, "/", nil)
-
-		// cancellingCtx is derived from request which returns a cancel function
-		// we then schedule function to be called in 5 ms
-		// finally we use context in our request by calling request.WithContext
-		cancellingCtx, cancel := context.WithCancel(request.Context())
-		time.AfterFunc(5*time.Millisecond, cancel)
-		request = request.WithContext(cancellingCtx)
-
 		response := httptest.NewRecorder()
 
 		svr.ServeHTTP(response, request)
 
-		if !store.cancelled {
-			t.Error("store was not told to cancel")
+		if response.Body.String() != data {
+			t.Errorf(`got "%s", want "%s"`, response.Body.String(), data)
+		}
+
+		if store.cancelled {
+			t.Error("it should not have cancelled the store")
 		}
 	})
 }
