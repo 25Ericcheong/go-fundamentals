@@ -213,6 +213,7 @@ type Writer interface {
 - `context` has a method `Done()` which returns a channel which gets sent a signal when context is "done" or "cancelled". 
 - Incoming requests to a server should create a `Context`, and outgoing calls to servers should accept a Context. The chain of function calls between them must propogate the Context so that when a Context is cancelled, all Contexts derived from it are also canceled.
 - Context must be passed down to next responsible function in order for cancellation to propagate back up the chain if a cancellation does occur
+- NEVER pass values through `context`. It is an untyped map so we do not have type-safety 
 
 ## About Tests
 
@@ -288,4 +289,5 @@ func BenchmarkRepeat(b *testing.B) {
 - To mock HTTP server, look at standard library - `net/http/httptest`; preferred to do more investigation in along with the methods that can be called like `NewRequest` and `NewRecorder`
 - To read more about reflection - https://go.dev/blog/laws-of-reflection
 - To read more about context - https://go.dev/blog/context. Look at examples and try to better understand the use of context and how to manage cancellations and how a function would accept `context` and use it to cancel itself with `goroutines`, `select` and `channels`. These are worth practicing and understanding
+- More on `context` and examples here - https://blog.golang.org/context
 - A deeper understanding of `http.HandlerFunc` and how that works with servers 
