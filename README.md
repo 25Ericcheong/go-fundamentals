@@ -284,6 +284,7 @@ func BenchmarkRepeat(b *testing.B) {
 - Get more familiar with Go Standard Library (may help with writing dependency injection for testing purposes)
 - Understanding the purpose of `Buffer` and `Writer`
 - Look into the term Test Doubles (https://martinfowler.com/bliki/TestDouble.html)
-- To mock HTTP server, look at standard library - `net/http/httptest`
+- To mock HTTP server, look at standard library - `net/http/httptest`; preferred to do more investigation in along with the methods that can be called like `NewRequest` and `NewRecorder`
 - To read more about reflection - https://go.dev/blog/laws-of-reflection
 - To read more about context - https://go.dev/blog/context. Look at examples and try to better understand the use of context
+- A deeper understanding of `http.HandlerFunc` and how that works with servers 
