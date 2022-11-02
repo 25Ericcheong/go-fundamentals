@@ -281,6 +281,10 @@ func BenchmarkRepeat(b *testing.B) {
 
 - Worth noting if we are testing and storing our test case values in an array of something. The order may also affect the results of our test when it comes to utilizing `map` types. We need to ensure order should not matter and the test case accounts for that as well.
 
+### Property Based Testing
+
+- 
+
 ## Additional Investigation
 
 - Get more familiar with Go Standard Library (may help with writing dependency injection for testing purposes)
