@@ -285,6 +285,8 @@ func BenchmarkRepeat(b *testing.B) {
 
 - Some interesting use of string builder and interesting point about indexing a string would give us a byte. Note this really isn't relevant to ptoperty based testing but it was found while I was going through this chapter
 - This is part of the chapter. Property based tests helps us throw random data at code and verifying rules described are always true. Property based testing is ensuring we have a good understanding of domain so we can write these properties.
+- `quick.Check` standard library is a great way of acquiring random inputs to test our understanding of our domain. 
+- Random note, `unit16` are unsigned integers - meaning integers that cannot be negative. 16 bit integer can store a max number of `65535`. 
 
 ## Additional Investigation
 
