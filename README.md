@@ -215,6 +215,10 @@ type Writer interface {
 - Context must be passed down to next responsible function in order for cancellation to propagate back up the chain if a cancellation does occur
 - NEVER pass values through `context`. It is an untyped map so we do not have type-safety 
 
+### Maths Lib
+
+- Random. SVGs allow us to manipulate programmatically as they are described in XML. 
+
 ## About Tests
 
 ### Go Hello World
