@@ -87,7 +87,7 @@ func TestConvertingToArabic(t *testing.T) {
 		{Arabic: 798, Roman: "DCCXCVIII"},
 	}
 
-	for _, test := range cases[:3] {
+	for _, test := range cases {
 		t.Run(fmt.Sprintf("%q gets converted to %d", test.Roman, test.Arabic), func(t *testing.T) {
 			got := ConvertToArabic(test.Roman)
 			if got != test.Arabic {

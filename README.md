@@ -283,7 +283,7 @@ func BenchmarkRepeat(b *testing.B) {
 
 ### Property Based Testing
 
-- 
+- Some interesting use of string builder and interesting point about indexing a string would give us a byte
 
 ## Additional Investigation
 
