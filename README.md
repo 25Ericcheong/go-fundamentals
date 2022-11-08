@@ -283,7 +283,8 @@ func BenchmarkRepeat(b *testing.B) {
 
 ### Property Based Testing
 
-- Some interesting use of string builder and interesting point about indexing a string would give us a byte
+- Some interesting use of string builder and interesting point about indexing a string would give us a byte. Note this really isn't relevant to ptoperty based testing but it was found while I was going through this chapter
+- This is part of the chapter. Property based tests helps us throw random data at code and verifying rules described are always true. Property based testing is ensuring we have a good understanding of domain so we can write these properties.
 
 ## Additional Investigation
 
