@@ -10,7 +10,6 @@ const french = "French"
 
 func Hello(name string, language string) string {
 	if name != "" {
-
 		helloPrefix := greetingPrefix(language)
 		return fmt.Sprintf("%v %v, from a Function!", helloPrefix, name)
 	}
