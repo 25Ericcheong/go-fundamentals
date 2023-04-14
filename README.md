@@ -1,28 +1,9 @@
 # Go Fundamentals
 This repo is added for me to learn Go. I am currently going through this ~~[Go by Example](https://gobyexample.com/) tutorial~~ [Learn Go with Tests](https://github.com/quii/learn-go-with-tests) and will continue to update the Wiki (which then leads to new pages added and new links just to better organize the information I have gathered)
 
+I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/go-fundamentals/wiki) now - since it looks like it is getting to clustered now.
+
 ## Learn Go with Tests
-
-### Go Hello World
-
-- When writing go will have `main` package wiwth a `main` func in it. Constants should improve performance since it saves time having to create a specific type instance whenever code is called. However, simple example is negligible.
-
-```
-func greetingPrefix(language string) (prefix string) {
-	switch language {
-	case french:
-		prefix = helloFrenchPrefix
-	case english:
-		prefix = helloEnglishPrefix
-	default:
-		prefix = helloMandarinPrefix
-	}
-	return
-}
-```
-
-- Above, is a way of declaring a variable that will be assigned and return within a function (just my opinion - never seen such a syntax). The `prefix` will be assigned a `"zero"` value on the type (for a string it is `""` and for an int type it would be `0`). `return` will return the `prefix` variable declared in the method's signature.
-- Function names starting with a lowercase letter would be private and anything that starts with an uppercase will be used publicly. 
 
 ### Integers
 
