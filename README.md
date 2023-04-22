@@ -5,19 +5,6 @@ I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/
 
 ## Learn Go with Tests
 
-### Iteration
-
-- Go only has `for` loop used for anything that involves iteration. 
-- Apart from the example included in the Iterations directory. This is a `for` loop variation example that I thought was quite cool and would like to be mindful of.
-
-```
-i := 1
-for i <= 3 {
-    fmt.Println(i)
-    i = i + 1
-}
-```
-
 ### Array & Slices
 
 - When iterating through an array, we can use `range` to iterate through array instead. An example is as shown below.
