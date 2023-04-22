@@ -5,16 +5,6 @@ I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/
 
 ## Learn Go with Tests
 
-### Integers
-
-```
-func Add(x, y int) int {
-	return x + y
-}
-```
-
-- We can define arguments with the same type with the following code above. A shortcut way of doing it.
-
 ### Iteration
 
 - Go only has `for` loop used for anything that involves iteration. 
