@@ -5,55 +5,6 @@ I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/
 
 ## Learn Go with Tests
 
-### Array & Slices
-
-- When iterating through an array, we can use `range` to iterate through array instead. An example is as shown below.
-
-```
-func Sum(numbers [5]int) int {
-	sum := 0
-	for _, number := range numbers {
-		sum += number
-	}
-	return sum
-}
-```
-
-- `range` returns two values; the index and value. In this case, `_` from the code is ignored since it is not used
-- Interestingly, a function expecting a `[5]int` as an argument type and is passed with a `[4]int` will not compile. This can be the same as passing an `int` into a function as an argument that expects a `string`. 
-- Due to that, `slices` would usually be used instead because it does not encode the size eof the collection and instead can have any size.
-- Creating slices would be as simple as `[]int` and `make([]int, sizeOfSlice)` - allows us to create a new slice of the type inserted as the first argument along with the size of the slice as the second argument.
-- Cannot use equality operators with slices. Instead, should use `reflect.DeepEqual` which is useful for seeing if any 2 variables are the same. 
-- Worth noting that `DeepEqual` doesn't type safe check values. 
-- Instead of `make` which restricts the capacity of a slice, we can use the `append` function instead which appends new values to a slice - effectively allowing slice to grow in capacity as needed and will return a new slice along with the new appended value.
-- Example of a good practice to slice and taking only subset of the array by utilizing  the `copy` function and prevent memory wastage as shown in the example below
-
-```
-a := make([]int, 1e6) // slice "a" with len = 1 million
-b := a[:2] // even though "b" len = 2, it points to the same the underlying array "a" points to
-
-c := make([]int, len(b)) // create a copy of the slice so "a" can be garbage collected
-copy(c, b)
-fmt.Println(c)
-```
-
-- An example of properly copying values from one slice type to another slice type
-
-```
-x := [3]string{"Лайка", "Белка", "Стрелка"}
-
-y := x[:] // slice "y" points to the underlying array "x"
-
-z := make([]string, len(x))
-copy(z, x[:]) // slice "z" is a copy of the slice created from array "x"
-
-y[1] = "Belka" // the value at index 1 is now "Belka" for both "y" and "x"
-
-fmt.Printf("%T %v\n", x, x)
-fmt.Printf("%T %v\n", y, y)
-fmt.Printf("%T %v\n", z, z)
-```
-
 ### Structs, Methods and Interfaces
 
 - Struct is a named collection of fields where we can store data. Worth noting that the syntax for writing a method for a struct is as such `func (receiverName ReceiverType) MethodName(args)`.
