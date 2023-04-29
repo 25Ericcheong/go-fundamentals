@@ -5,12 +5,6 @@ I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/
 
 ## Learn Go with Tests
 
-### Structs, Methods and Interfaces
-
-- Struct is a named collection of fields where we can store data. Worth noting that the syntax for writing a method for a struct is as such `func (receiverName ReceiverType) MethodName(args)`.
-- In Go, there is no need to explicitly have a `struct` implement an `interace`. It implicitly ensures structs implements the interfaces with the same method signature. 
-- Anonymous struct can be used in table driven test to inclcude fields for the struct itself and the expected value which will be looped through for test cases.
-
 ### Pointers and Errors
 
 - If a symbol (variable, types, functions, etc.) starts with a lowercase symbol then it is private.
