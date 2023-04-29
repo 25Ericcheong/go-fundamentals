@@ -9,5 +9,18 @@ func Sum(numbers []int) int {
 }
 
 func SumAll(numbersToSum ...[]int) []int {
-	return nil
+	lengthOfArgs := len(numbersToSum)
+	sums := make([]int, lengthOfArgs)
+
+	for i, numbers := range numbersToSum {
+		sums[i] = Sum(numbers)
+	}
+
+	// alternative - instead of predefining slice length
+	// var sums []int
+	// for i, numbers := range numbersToSum {
+	// 	sums = append(sums, Sum(numbers))
+	// }
+
+	return sums
 }
