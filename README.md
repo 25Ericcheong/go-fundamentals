@@ -5,23 +5,6 @@ I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/
 
 ## Learn Go with Tests
 
-### Pointers and Errors
-
-- If a symbol (variable, types, functions, etc.) starts with a lowercase symbol then it is private.
-- Calling a function or method - the arguments are copied. Example when calling `func (w Wallet) Deposit(amount int)` the `w` is a copy of whatever we call the method from. If we have differe methods being called from different parts of our code, the arguments called within the methods will have its own memory address. The `struct` defined with a variable within a different script would also have its own designated memory address for its variable as well. This would mean that manipulating a variable within a method from a different script would not affect a variable defined within the `struct` that has been initialized in a different script.
-- This is where `pointers` come into play. Pointers would allow us to point to some values and then let us to change them. So, rather than having a copy, we would take a pointer to that variable / object so that we can change the original values within it.
-- Go allow us to create a different type on top of existing ones to be more descriptive and explicit about why we have a specific `struct` to represent something. The syntax would be `type MyName OriginalType`. 
-- With a new type defined, we can now declare methods on them. This allow us to be add domain specific functionality on top of existing types. In this case, `stringer` interface was implemented on our type (called Bitcoin). This interface will allow us to define how our type will be printed when used with the `%s` format string in prints. Example of code is as such.
-
-```
-func (b Bitcoin) String() string {
-	return fmt.Sprintf("%d BTC", b)
-}
-```
-
-- `nil` is the same as `null`. Errors can be `nil` because a return type `error` is an interface. A function that takes arguments or returns values that are interfaces, can be nillable.
-- Important to have assertion for when error is not supposed to be returned as well. This can be checked with the following `go packages` - `go install github.com/kisielk/errcheck@latest` and runing `errcheck .` within the directory to check if we have missed anything out. 
-
 ### Maps
 
 - Store items by `key` and look them up quicky. Similar to a dictionary. Declaring `map` will require two types. First would be the key type (written within the `[]`) and the second would be the value type, which goes after the `[]`. Note that the `key` can only be a comparable type.
