@@ -6,12 +6,12 @@ import (
 
 func TestWallet(t *testing.T) {
 	t.Run("deposit", func(t *testing.T) {
-		wallet := Wallet{}
+		wallet := Wallet{Bitcoin(10)}
 		wallet.Deposit(Bitcoin(10))
 		assertBalance(t, wallet, Bitcoin(10))
 	})
 
-	t.Run("widthdraw", func(t *testing.T) {
+	t.Run("withdraw", func(t *testing.T) {
 		wallet := Wallet{balance: Bitcoin(20)}
 
 		// since code below can return an error, important to check that no error is supposed to be returned here

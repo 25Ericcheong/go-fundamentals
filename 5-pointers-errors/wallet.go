@@ -7,6 +7,10 @@ import (
 
 type Bitcoin int
 
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%d BTC", b)
+}
+
 type Wallet struct {
 	balance Bitcoin
 }
@@ -24,15 +28,11 @@ var ErrorInsufficientFunds = errors.New("amount wanting to withdraw is more than
 
 func (w *Wallet) Withdraw(amount Bitcoin) error {
 
-	// error is a type of interace and can be nil in Go
+	// error is a type of interface and can be nil in Go
 	if amount > w.balance {
 		return ErrorInsufficientFunds
 	}
 
 	w.balance -= amount
 	return nil
-}
-
-func (b Bitcoin) String() string {
-	return fmt.Sprintf("%d BTC", b)
 }
