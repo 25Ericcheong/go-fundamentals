@@ -5,47 +5,6 @@ I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/
 
 ## Learn Go with Tests
 
-### Dependency Injection
-
-- Helps with testing and allows us to write general-purpose functions. Worth noting that the `Writer` interface will be seen quite regularly. It is a great general purpose interface for "put this data somewhere".
-- How to test something that prints to console (`stdout`). Will need to inject (meaning - pass in) the dependency of printing. In example, we try to test something that prints (`Printf`).
-- Upon inspection, `Printf` implementation is as such:
-
-```
-// It returns the number of bytes written and any write error encountered.
-func Printf(format string, a ...interface{}) (n int, err error) {
-	return Fprintf(os.Stdout, format, a...)
-}
-```
-
-- `Printf` calls `Fprintf` while passing in `os.Stdout`. What is `os.Stdout`? As such, further inspection of `Fprintf` then leads to the following implementation:
-
-```
-func Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) {
-	p := newPrinter()
-	p.doPrintf(format, a)
-	n, err = w.Write(p.buf)
-	p.free()
-	return
-}
-```
-
-- We can see that `os.Stdout` implements `io.Writer`. Note, `io.Writer` interface could be seen quite often because it is a great general purpose interface for "put this data somewhere". The interface can be found to look like the following:
-
-```
-type Writer interface {
-	Write(p []byte) (n int, err error)
-}
-```
-
-- The `os.Stdout` implements the method - `Write` which explains why it implements the `Writer` interface. Also worth noting that `Buffer` type from the `bytes` package also implement the `Writer` interface because it implements the same method from the `Writer` interface - `Write`.
-- Worth noting that `Writer` interface is general purpose and is used in a variety of ways.
-
-- Hard-wired dependencies or global state would make testing hard and slow. Example, global database connection pool used by a service later will make testing difficult and slow because it needs to be initialized and isolated for proper testing. Dependency injection will allow us to inject in a database dependency with an interface so that we can mock out with something we can control.
-- Simnilar to example shown in the dependency example, test was refactored so that we could control where data was written by `injecting a dependency` (with an interface).
-- `Separate your concerns`, decoupling where data goes from how to generate it. If a function has too many responsibilities (generating and writing to db or handling HTTP requests and doing domain level logic) then dependency injection is what we need.
-- Code can be reused in different contexts - new dependencies can be used with our function (as long as same interface is used / same dependency is injected) 
-
 ### Concurrency
 
 - Having more than one thing in progress. An operation that does not block code in Go will run in a seaprate process called `goroutine`. To start a new `goroutine` we turn a function into a `go` statement by putting the keyword `go` in front of the function.
