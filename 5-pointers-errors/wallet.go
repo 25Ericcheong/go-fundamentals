@@ -5,6 +5,9 @@ import (
 	"fmt"
 )
 
+// this is a global value within package
+var ErrorInsufficientFunds = errors.New("amount wanting to withdraw is more than total balance")
+
 type Bitcoin int
 
 func (b Bitcoin) String() string {
@@ -22,9 +25,6 @@ func (w *Wallet) Deposit(amount Bitcoin) {
 func (w *Wallet) Balance() Bitcoin {
 	return w.balance
 }
-
-// this is a global value within package
-var ErrorInsufficientFunds = errors.New("amount wanting to withdraw is more than total balance")
 
 func (w *Wallet) Withdraw(amount Bitcoin) error {
 
