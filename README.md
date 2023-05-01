@@ -5,14 +5,6 @@ I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/
 
 ## Learn Go with Tests
 
-### Maps
-
-- Store items by `key` and look them up quicky. Similar to a dictionary. Declaring `map` will require two types. First would be the key type (written within the `[]`) and the second would be the value type, which goes after the `[]`. Note that the `key` can only be a comparable type.
-- Similar to how we can create a `custom type` for readability from previous example. We can also do the same and create a `custom type` called `Dictionary` that thinly wraps around `map`. 
-- With this, we can then create a method that can be used to search up for values with keys when/if the `custom type` is created. Note that, the method can only be used when the `custom type` has been instantiated.
-- When attempting to access a value, the `map` returns 2 values. First would ne the value that corresponds to the key amd the second is a `boolean` that indicates if the key was found successfully.
-- Interestingly, do not need to ensure pointers for `map` type. Because, a map value is a pointer to a runtime.hmap structure. As such, we should never initialize an empty map variable like this `var m map[string]string`. Instead, we can initialize an empty map like this `var dictionary = map[string]string{}` or with the `make` like this `var dictionary = make(map[string]string)`. This prevent a runtime panic as we will create an empty `hash map`.
-
 ### Dependency Injection
 
 - Helps with testing and allows us to write general-purpose functions. Worth noting that the `Writer` interface will be seen quite regularly. It is a great general purpose interface for "put this data somewhere".
@@ -188,3 +180,4 @@ func BenchmarkRepeat(b *testing.B) {
 - To read more about context - https://go.dev/blog/context. Look at examples and try to better understand the use of context and how to manage cancellations and how a function would accept `context` and use it to cancel itself with `goroutines`, `select` and `channels`. These are worth practicing and understanding
 - More on `context` and examples here - https://blog.golang.org/context
 - A deeper understanding of `http.HandlerFunc` and how that works with servers 
+- Handling errors gracefully - https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully
