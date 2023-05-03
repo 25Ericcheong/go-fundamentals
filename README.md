@@ -140,3 +140,4 @@ func BenchmarkRepeat(b *testing.B) {
 - More on `context` and examples here - https://blog.golang.org/context
 - A deeper understanding of `http.HandlerFunc` and how that works with servers 
 - Handling errors gracefully - https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully
+- Concurrency examples or patterns which I think is quite informative and useful - https://go.dev/talks/2012/concurrency.slide#14
