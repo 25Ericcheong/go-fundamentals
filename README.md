@@ -140,4 +140,4 @@ func BenchmarkRepeat(b *testing.B) {
 - More on `context` and examples here - https://blog.golang.org/context
 - A deeper understanding of `http.HandlerFunc` and how that works with servers 
 - Handling errors gracefully - https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully
-- Concurrency examples or patterns which I think is quite informative and useful - https://go.dev/talks/2012/concurrency.slide#14 . Helpful point. When trying to acquire values from channels in a for loop, it is important to understand this statement; when the main function executes <–c, it will wait for a value to be sent. Similarly, when the boring function executes c <– value, it waits for a receiver to be ready.
+- Concurrency examples or patterns which I think is quite informative and useful - https://go.dev/talks/2012/concurrency.slide#14 . Helpful point. When trying to acquire values from channels in a for loop, it is important to understand this statement; when the main function executes <– c, it will wait for a value to be sent. Similarly, when the boring function executes c <– value, it waits for a receiver to be ready.
