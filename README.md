@@ -5,18 +5,6 @@ I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/
 
 ## Learn Go with Tests
 
-### Concurrency
-
-- Having more than one thing in progress. An operation that does not block code in Go will run in a seaprate process called `goroutine`. To start a new `goroutine` we turn a function into a `go` statement by putting the keyword `go` in front of the function.
-- Only way to start a `goroutine` is to have `go` keyword in front of function call, usually use anonymous functions.
-- Useful because they can be executed at the sane time they are declared - by having `()` after the ending curly brace. Next, they maintain access to the lexical scope they are defined in - all variables available at the point when anonymous function is declared are also avaialble in the body of the function. 
-- If not handled correctly, will be hard to predict what is going to happen. Which is why tests are written, to know we are handling concurrency predictably. 
-- Ensure that each `goroutine` doesn't reference the same item when a new `goroutine` process is created. Getting the last item only means that the processes before that is referring to the same item of the `map`. We have to make sure that the variable within the `goroutine` is fixed and we do this by defining a parameter for the anonymous function.
-- Possible for `fatal error: concurrent map writes` to occur. This is due to  multiple `goroutine` writing to the map. As such, we need to spot race conditions with the built in `race detector`.
-- This can be solved by coordinating goroutines using `channels`. Channels are Go data structure that can both receive and send values. This will allow communication between different processes. `chan` is the type - which stands for channel.
-- A `send statement` would be `resultChannel <- result{u, wc(u)}` which in this case - we are sending `result` struct to the `resultChannel`.
-- On the other hand, a `receive expression` is as such `r := <-resultChannel` where the channel is now on the right and the variable that we are assigninng to is on the left. 
-
 ### Select 
 
 - Example included is a scenario where we try to test with real websites to test our logic.
