@@ -12,7 +12,7 @@ I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/
 - This is used early on but called at the end to improve readability.
 - Always `make` channels. `ch := make(chan struct{})` is better over `var ch chan struct{}` because with `var`, variable will be initialised with the zero value of the type. `string` will be `""` and `int` will be `0`. For channels, the zero value is `nil` and sending it with `<-` will block forever because we can't send `nil` channels.
 - Recall that you can wait for values to be sent to a channel with `myVar := <-ch`. This is a blocking call, as you are waiting for a value. `select` lets us wait on multiple channels. The first one to send a value "wins" and the code underneath the `case` is executed. 
-- `time.After` returns a `chan` and will send a signal down it after amount of time defined. 
+- `time.After` returns a `chan` and will send a signal down after a period of defined duracfion.
 
 ### Reflection
 
