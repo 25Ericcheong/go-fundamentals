@@ -1,7 +1,7 @@
 # Go Fundamentals
 This repo is added for me to learn Go. I am currently going through ~~[Go by Example](https://gobyexample.com/) tutorial~~ [Learn Go with Tests](https://github.com/quii/learn-go-with-tests) and will continue to update Wiki (which then leads to new pages added and new links just to better organize the information I have gathered)
 
-I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/go-fundamentals/wiki) now. This will also serve as an opportunity to review that I have learned in the past.
+I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/go-fundamentals/wiki) now. This will also serve as an opportunity to review what I have learned in the past.
 
 ## Learn Go with Tests
 
