@@ -16,22 +16,6 @@ type Sleeper interface {
 	Sleep()
 }
 
-type DefaultSleeper struct{}
-
-func (d *DefaultSleeper) Sleep() {
-	time.Sleep(1 * time.Second)
-}
-
-// testing to spy on mock and ensure mock actually "sleeps"
-// no longer needed with new spy in placed
-type SpySleeper struct {
-	Calls int
-}
-
-func (s *SpySleeper) Sleep() {
-	s.Calls++
-}
-
 // testing to spy on mock and ensure it is sleeping in correct order
 type SpyCountdownOperations struct {
 	Calls []string
@@ -76,6 +60,6 @@ func Countdown(out io.Writer, sleeper Sleeper) {
 }
 
 func main() {
-	sleeper := &DefaultSleeper{}
+	sleeper := &ConfigurableSleeper{2 * time.Second, time.Sleep}
 	Countdown(os.Stdout, sleeper)
 }
