@@ -7,7 +7,7 @@ import (
 
 func TestCountdown(t *testing.T) {
 	buffer := &bytes.Buffer{}
-	var spySleeper *SpySleeper = &SpySleeper{}
+	spySleeper := &SpySleeper{}
 
 	Countdown(buffer, spySleeper)
 
