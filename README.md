@@ -5,15 +5,6 @@ I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/
 
 ## Learn Go with Tests
 
-### Select 
-
-- Example included is a scenario where we try to test with real websites to test our logic.
-- `defer` is a keyword that can be used to as a prefix on a function call so that the call of the function will be done at the end of the containing function. Most commonly used to cleanup resources - closing a file or closing a server so that it does not continue to listen to a port (in example)
-- This is used early on but called at the end to improve readability.
-- Always `make` channels. `ch := make(chan struct{})` is better over `var ch chan struct{}` because with `var`, variable will be initialised with the zero value of the type. `string` will be `""` and `int` will be `0`. For channels, the zero value is `nil` and sending it with `<-` will block forever because we can't send `nil` channels.
-- Recall that you can wait for values to be sent to a channel with `myVar := <-ch`. This is a blocking call, as you are waiting for a value. `select` lets us wait on multiple channels. The first one to send a value "wins" and the code underneath the `case` is executed. 
-- `time.After` returns a `chan` and will send a signal down after a period of defined duracfion.
-
 ### Reflection
 
 - `interface{}` used for when we don't know what the type is at compile time. Generally less performant (since need to do additional checks at runtime). As such, should only use reflection if you really need to.
