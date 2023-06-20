@@ -17,8 +17,6 @@ type Profile struct {
 
 func TestWalk(t *testing.T) {
 
-	// to test for multiple different scenarios
-	// an array containing an anon struct type with the following fields
 	cases := []struct {
 		Name          string
 		Input         interface{}
