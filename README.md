@@ -5,14 +5,7 @@ I am beginning to transfer my notes into [Wiki](https://github.com/25Ericcheong/
 
 ## Learn Go with Tests
 
-### Context
-
-- Used to manage long-running processes. We need to be able to handle a long process that could get cancelled unexpectingly. 
-- Important to derive contexts so that cancellations are propagated throughout call stack for given request. 
-- `context` has a method `Done()` which returns a channel which gets sent a signal when context is "done" or "cancelled". 
-- Incoming requests to a server should create a `Context`, and outgoing calls to servers should accept a Context. The chain of function calls between them must propogate the Context so that when a Context is cancelled, all Contexts derived from it are also canceled.
-- Context must be passed down to next responsible function in order for cancellation to propagate back up the chain if a cancellation does occur
-- NEVER pass values through `context`. It is an untyped map so we do not have type-safety 
+- Everything can be found in the [Wiki](https://github.com/25Ericcheong/go-fundamentals/wiki). I used to have all my notes in this file but soon realized that it is not manageable with some chapters requiring more revision (like channels).
 
 ### Maths Lib
 
