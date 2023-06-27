@@ -21,6 +21,8 @@ func TestServer(t *testing.T) {
 	request := httptest.NewRequest(http.MethodGet, "/", nil)
 	response := httptest.NewRecorder()
 
+	// ServeHTTP calls return function of Server function
+	// Interestingly if a type implements this function - it will be treated as a HandlerFunc type
 	svr.ServeHTTP(response, request)
 
 	if response.Body.String() != data {
