@@ -65,6 +65,7 @@ func TestConvertingToArabic(t *testing.T) {
 	}
 }
 
+// this assertion tests to ensure that large values will be converted - the code has been set up to improve visibility
 func TestPropertiesOfConversion(t *testing.T) {
 	assertion := func(arabic uint16) bool {
 		if arabic > 3999 {
