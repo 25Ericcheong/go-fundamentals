@@ -6,6 +6,7 @@ import (
 	"testing/quick"
 )
 
+// when looping through table based tests, description can be removed as the data wer are testing with can be self-explanatory
 func TestRomanNumerals(t *testing.T) {
 	cases := []struct {
 		Arabic int
