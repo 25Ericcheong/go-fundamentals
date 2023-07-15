@@ -13,6 +13,12 @@ const (
 	hourHandLength   = 50
 	clockCentreX     = 150
 	clockCentreY     = 150
+	secondsInHalfClock = 30
+	secondsInClock     = 2 * secondsInHalfClock
+	minutesInHalfClock = 30
+	minutesInClock     = 2 * minutesInHalfClock
+	hoursInHalfClock   = 6
+	hoursInClock       = 2 * hoursInHalfClock
 )
 
 // A Point represents a two dimensional Cartesian coordinate
@@ -53,12 +59,12 @@ func makeHand(p Point, length float64) Point {
 }
 
 func secondsInRadians(t time.Time) float64 {
-	return (math.Pi / (30 / (float64(t.Second()))))
+	return (math.Pi / (secondsInHalfClock / (float64(t.Second()))))
 }
 
 func hoursInRadians(t time.Time) float64 {
 	return (minutesInRadians(t) / 12) +
-		(math.Pi / (6 / float64(t.Hour()%12)))
+		(math.Pi / (hoursInHalfClock / float64(t.Hour()%12)))
 }
 
 func minuteHandPoint(t time.Time) Point {
@@ -81,8 +87,8 @@ func angleToPoint(angle float64) Point {
 }
 
 func minutesInRadians(t time.Time) float64 {
-	return (secondsInRadians(t) / 60) +
-		(math.Pi / (30 / float64(t.Minute())))
+	return (secondsInRadians(t) / secondsInClock) +
+		(math.Pi / (secondsInHalfClock / float64(t.Minute())))
 }
 
 func simpleTime(hours, minutes, seconds int) time.Time {
