@@ -7,6 +7,14 @@ import (
 	"time"
 )
 
+const (
+	secondHandLength = 90
+	minuteHandLength = 80
+	hourHandLength   = 50
+	clockCentreX     = 150
+	clockCentreY     = 150
+)
+
 // A Point represents a two dimensional Cartesian coordinate
 type Point struct {
 	X float64
@@ -23,20 +31,25 @@ func SecondHand(t time.Time) Point {
 	return p
 }
 
+func hourHand(w io.Writer, t time.Time) {
+	p := makeHand(hourHandPoint(t), hourHandLength)
+	fmt.Fprintf(w, `<line x1="150" y1="150" x2="%.3f" y2="%.3f" style="fill:none;stroke:#000;stroke-width:3px;"/>`, p.X, p.Y)
+}
+
 func secondHand(w io.Writer, t time.Time) {
-	p := secondHandPoint(t)
-	p = Point{p.X * secondHandLength, p.Y * secondHandLength} // scale
-	p = Point{p.X, -p.Y}                                      // flip
-	p = Point{p.X + clockCentreX, p.Y + clockCentreY}         // translate
+	p := makeHand(secondHandPoint(t), secondHandLength)
 	fmt.Fprintf(w, `<line x1="150" y1="150" x2="%.3f" y2="%.3f" style="fill:none;stroke:#f00;stroke-width:3px;"/>`, p.X, p.Y)
 }
 
 func minuteHand(w io.Writer, t time.Time) {
-	p := minuteHandPoint(t)
-	p = Point{p.X * minuteHandLength, p.Y * minuteHandLength}
-	p = Point{p.X, -p.Y}
-	p = Point{p.X + clockCentreX, p.Y + clockCentreY}
+	p := makeHand(minuteHandPoint(t), minuteHandLength)
 	fmt.Fprintf(w, `<line x1="150" y1="150" x2="%.3f" y2="%.3f" style="fill:none;stroke:#000;stroke-width:3px;"/>`, p.X, p.Y)
+}
+
+func makeHand(p Point, length float64) Point {
+	p = Point{p.X * length, p.Y * length}
+	p = Point{p.X, -p.Y}
+	return Point{p.X + clockCentreX, p.Y + clockCentreY}
 }
 
 func secondsInRadians(t time.Time) float64 {
@@ -54,6 +67,10 @@ func minuteHandPoint(t time.Time) Point {
 
 func secondHandPoint(t time.Time) Point {
 	return angleToPoint(secondsInRadians(t))
+}
+
+func hourHandPoint(t time.Time) Point {
+	return angleToPoint(hoursInRadians(t))
 }
 
 func angleToPoint(angle float64) Point {

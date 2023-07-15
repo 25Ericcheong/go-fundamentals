@@ -5,20 +5,13 @@ import (
 	"time"
 )
 
-const (
-	secondHandLength = 90
-	clockCentreX     = 150
-	clockCentreY     = 150
-	minuteHandLength = 80
-
-)
-
 //SVGWriter writes an SVG representation of an analogue clock, showing the time t, to the writer w
 func SVGWriter(w io.Writer, t time.Time) {
 	io.WriteString(w, svgStart)
 	io.WriteString(w, bezel)
 	secondHand(w, t)
 	minuteHand(w, t)
+	hourHand(w, t)
 	io.WriteString(w, svgEnd)
 }
 
