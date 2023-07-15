@@ -29,14 +29,6 @@ func TestSecondsInRadians(t *testing.T) {
 	}
 }
 
-func simpleTime(hours, minutes, seconds int) time.Time {
-	return time.Date(312, time.October, 28, hours, minutes, seconds, 0, time.UTC)
-}
-
-func testName(t time.Time) string {
-	return t.Format("15:04:05")
-}
-
 func TestSecondHandPoint(t *testing.T) {
 	cases := []struct {
 		time  time.Time
@@ -85,6 +77,65 @@ func TestSVGWriterSecondHand(t *testing.T) {
 		})
 	}
 }
+
+// func TestSVGWriterMinuteHand(t *testing.T) {
+// 	cases := []struct {
+// 		time time.Time
+// 		line Line
+// 	}{
+// 		{
+// 			simpleTime(0, 0, 0),
+// 			Line{150, 150, 150, 70},
+// 		},
+// 	}
+
+// 	for _, c := range cases {
+// 		t.Run(testName(c.time), func(t *testing.T) {
+// 			b := bytes.Buffer{}
+// 			SVGWriter(&b, c.time)
+
+// 			svg := SVG{}
+// 			xml.Unmarshal(b.Bytes(), &svg)
+
+// 			if !containsLine(c.line, svg.Line) {
+// 				t.Errorf("Expected to find the minute hand line %+v, in the SVG lines %+v", c.line, svg.Line)
+// 			}
+// 		})
+// 	}
+// }
+
+func TestMinutesInRadians(t *testing.T) {
+	cases := []struct {
+		time  time.Time
+		angle float64
+	}{
+		{simpleTime(0, 30, 0), math.Pi},
+		{simpleTime(0, 0, 7), 7 * (math.Pi / (30 * 60))},
+	}
+
+	for _, c := range cases {
+		t.Run(testName(c.time), func(t *testing.T) {
+			got := minutesInRadians(c.time)
+			if got != c.angle {
+				t.Fatalf("Wanted %v radians, but got %v", c.angle, got)
+			}
+		})
+	}
+}
+
+func minutesInRadians(t time.Time) float64 {
+	return (secondsInRadians(t) / 60) +
+		(math.Pi / (30 / float64(t.Minute())))
+}
+
+func simpleTime(hours, minutes, seconds int) time.Time {
+	return time.Date(312, time.October, 28, hours, minutes, seconds, 0, time.UTC)
+}
+
+func testName(t time.Time) string {
+	return t.Format("15:04:05")
+}
+
 
 func containsLine(l Line, ls []Line) bool {
 	for _, line := range ls {
