@@ -1,7 +1,6 @@
 package clockface
 
 import (
-	"fmt"
 	"io"
 	"time"
 )
@@ -21,14 +20,6 @@ func SVGWriter(w io.Writer, t time.Time) {
 	secondHand(w, t)
 	minuteHand(w, t)
 	io.WriteString(w, svgEnd)
-}
-
-func secondHand(w io.Writer, t time.Time) {
-	p := secondHandPoint(t)
-	p = Point{p.X * secondHandLength, p.Y * secondHandLength} // scale
-	p = Point{p.X, -p.Y}                                      // flip
-	p = Point{p.X + clockCentreX, p.Y + clockCentreY}         // translate
-	fmt.Fprintf(w, `<line x1="150" y1="150" x2="%.3f" y2="%.3f" style="fill:none;stroke:#f00;stroke-width:3px;"/>`, p.X, p.Y)
 }
 
 const svgStart = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>

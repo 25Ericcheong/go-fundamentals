@@ -23,6 +23,14 @@ func SecondHand(t time.Time) Point {
 	return p
 }
 
+func secondHand(w io.Writer, t time.Time) {
+	p := secondHandPoint(t)
+	p = Point{p.X * secondHandLength, p.Y * secondHandLength} // scale
+	p = Point{p.X, -p.Y}                                      // flip
+	p = Point{p.X + clockCentreX, p.Y + clockCentreY}         // translate
+	fmt.Fprintf(w, `<line x1="150" y1="150" x2="%.3f" y2="%.3f" style="fill:none;stroke:#f00;stroke-width:3px;"/>`, p.X, p.Y)
+}
+
 func minuteHand(w io.Writer, t time.Time) {
 	p := minuteHandPoint(t)
 	p = Point{p.X * minuteHandLength, p.Y * minuteHandLength}
@@ -33,6 +41,11 @@ func minuteHand(w io.Writer, t time.Time) {
 
 func secondsInRadians(t time.Time) float64 {
 	return (math.Pi / (30 / (float64(t.Second()))))
+}
+
+func hoursInRadians(t time.Time) float64 {
+	return (minutesInRadians(t) / 12) +
+		(math.Pi / (6 / float64(t.Hour()%12)))
 }
 
 func minuteHandPoint(t time.Time) Point {
