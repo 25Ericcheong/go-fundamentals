@@ -1,3 +1,3 @@
-module files
+module blogposts
 
 go 1.20

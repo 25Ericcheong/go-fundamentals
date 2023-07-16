@@ -1,8 +1,8 @@
-package files_test
+package blogposts_test
 
 import (
+	"blogposts"
 	"errors"
-	"files"
 	"io/fs"
 	"reflect"
 	"testing"
@@ -15,7 +15,7 @@ func TestNewBlogPosts(t *testing.T) {
 		"hello-world2.md": {Data: []byte("Title: Post 2")},
 	}
 
-	posts, err := files.NewPostsFromFS(fs)
+	posts, err := blogposts.NewPostsFromFS(fs)
 
 	if err != nil {
 		t.Fatal(err)
@@ -26,7 +26,7 @@ func TestNewBlogPosts(t *testing.T) {
 	}
 
 	got := posts[0]
-	want := files.Post{Title: "Post 1"}
+	want := blogposts.Post{Title: "Post 1"}
 
 	if !reflect.DeepEqual(got, want) {
 		t.Errorf("got %+v, want %+v", got, want)
@@ -42,7 +42,7 @@ func (s StubFailingFS) Open(name string) (fs.File, error) {
 }
 
 func TestFailingFromFS(t *testing.T) {
-	_, err := files.NewPostsFromFS(StubFailingFS{})
+	_, err := blogposts.NewPostsFromFS(StubFailingFS{})
 
 	if err == nil {
 		t.Errorf("expected error to occur but none was found")
