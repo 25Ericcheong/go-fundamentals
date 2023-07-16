@@ -33,4 +33,19 @@ func TestRender(t *testing.T) {
 
 		approvals.VerifyString(t, buf.String())
 	})
+
+	t.Run("it renders an index of posts", func(t *testing.T) {
+		buf := bytes.Buffer{}
+		posts := []blogrenderer.Post{{Title: "Hello World"}, {Title: "Hello World 2"}}
+	
+		if err := postRenderer.RenderIndex(&buf, posts); err != nil {
+			t.Fatal(err)
+		}
+	
+		if err := postRenderer.RenderIndex(&buf, posts); err != nil {
+			t.Fatal(err)
+		}
+
+		approvals.VerifyString(t, buf.String())
+	})
 }
