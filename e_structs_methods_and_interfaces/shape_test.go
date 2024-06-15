@@ -1,4 +1,4 @@
-package structcs_methods_and_interfaces
+package structs_methods_and_interfaces
 
 import (
 	"go-fundamentals/utils"
@@ -6,14 +6,16 @@ import (
 )
 
 func TestPerimeter(t *testing.T) {
-	got := Perimeter(10.0, 10.0)
+	rect := Rectangle{10.0, 10.0}
+	got := Perimeter(rect)
 	want := 40.0
 
 	utils.AssertCorrectFloatMessage(t, got, want)
 }
 
 func TestArea(t *testing.T) {
-	got := Area(12.0, 6.0)
+	rect := Rectangle{12.0, 6}
+	got := Area(rect)
 	want := 72.0
 
 	utils.AssertCorrectFloatMessage(t, got, want)
