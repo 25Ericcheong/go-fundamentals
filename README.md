@@ -18,3 +18,4 @@ My attempt to learn Go via testing
 
 ## Structs, methods and interfaces
 - Implicit interfaces and the use of table driven tests to build a list of test cases (anonymous structs are use in the table of driven tests too)
+- Note the ability to run single test case instead of everything with the following command `go test -run TestArea/Rectangle`
