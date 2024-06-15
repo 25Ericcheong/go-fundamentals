@@ -1,4 +1,4 @@
-package b_integers
+package integers
 
 import (
 	"fmt"
