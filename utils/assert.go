@@ -12,10 +12,17 @@ func AssertCorrectStringsMessage(t testing.TB, got, want string) {
 	}
 }
 
-func AssertCorrectNumbersMessage(t testing.TB, got, want int) {
+func AssertCorrectIntMessage(t testing.TB, got, want int) {
 	t.Helper()
 	if got != want {
 		t.Errorf("got %d want %d", got, want)
+	}
+}
+
+func AssertCorrectFloatMessage(t testing.TB, got, want float64) {
+	t.Helper()
+	if got != want {
+		t.Errorf("got %.2f want %.2f", got, want)
 	}
 }
 
