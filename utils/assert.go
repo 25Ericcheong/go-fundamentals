@@ -1,6 +1,9 @@
 package utils
 
-import "testing"
+import (
+	"slices"
+	"testing"
+)
 
 func AssertCorrectStringsMessage(t testing.TB, got, want string) {
 	t.Helper()
@@ -12,6 +15,13 @@ func AssertCorrectStringsMessage(t testing.TB, got, want string) {
 func AssertCorrectNumbersMessage(t testing.TB, got, want int) {
 	t.Helper()
 	if got != want {
+		t.Errorf("got %d want %d", got, want)
+	}
+}
+
+func AssertCorrectNumbersArraysMessage(t testing.TB, got, want []int) {
+	t.Helper()
+	if !slices.Equal(got, want) {
 		t.Errorf("got %d want %d", got, want)
 	}
 }
