@@ -26,6 +26,13 @@ func AssertCorrectFloatMessage(t testing.TB, got, want float64) {
 	}
 }
 
+func AssertCorrectFloatMoreDecimalsMessage(t testing.TB, got, want float64) {
+	t.Helper()
+	if got != want {
+		t.Errorf("got %g want %g", got, want)
+	}
+}
+
 func AssertCorrectNumbersArraysMessage(t testing.TB, got, want []int) {
 	t.Helper()
 	if !slices.Equal(got, want) {
