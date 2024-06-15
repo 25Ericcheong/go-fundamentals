@@ -19,3 +19,7 @@ My attempt to learn Go via testing
 ## Structs, methods and interfaces
 - Implicit interfaces and the use of table driven tests to build a list of test cases (anonymous structs are use in the table of driven tests too)
 - Note the ability to run single test case instead of everything with the following command `go test -run TestArea/Rectangle`
+
+## Pointers and Errors
+- A field that starts with a lowercase symbol is private to outside the package it is defined in.
+- In a function or a method in Go, the arguments are copied. It is important to use pointers so we ensure we take the pointer of a type that has already been instantiated to update/modify rather than update/modify a copy of it when the method is called (the use of a `*`)
