@@ -10,12 +10,19 @@ func Sum(numbers []int) int {
 }
 
 func SumAll(arrOfNums ...[]int) []int {
-	numOfSlices := len(arrOfNums)
-	sums := make([]int, numOfSlices)
-
-	for i, numbers := range arrOfNums {
-		sums[i] = Sum(numbers)
+	var sums []int
+	for _, numbers := range arrOfNums {
+		sums = append(sums, Sum(numbers))
 	}
 
 	return sums
+}
+
+func SumAllTails(arrOfNums ...[]int) []int {
+	var sumsOfTails []int
+	for _, nums := range arrOfNums {
+		sumsOfTails = append(sumsOfTails, Sum(nums[1:]))
+	}
+
+	return sumsOfTails
 }

@@ -14,3 +14,4 @@ My attempt to learn Go via testing
 
 ## Arrays and Slices
 - Use `go test -cover` to display test coverage if needed. Great way to determining areas of code that need testing for.
+- The use of `make`, `slices`, `array`, `append`
