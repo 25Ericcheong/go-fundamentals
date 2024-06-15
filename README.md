@@ -15,3 +15,6 @@ My attempt to learn Go via testing
 ## Arrays and Slices
 - Use `go test -cover` to display test coverage if needed. Great way to determining areas of code that need testing for.
 - The use of `make`, `slices`, `array`, `append`
+
+## Structs, methods and interfaces
+- Implicit interfaces and the use of table driven tests to build a list of test cases (anonymous structs are use in the table of driven tests too)
