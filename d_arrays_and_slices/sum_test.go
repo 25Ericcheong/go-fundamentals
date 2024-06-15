@@ -1,6 +1,9 @@
 package arrays_and_slices
 
-import "testing"
+import (
+	"go-fundamentals/utils"
+	"testing"
+)
 
 func TestSum(t *testing.T) {
 	numbers := [5]int{1, 2, 3, 4, 5}
@@ -8,7 +11,5 @@ func TestSum(t *testing.T) {
 	got := Sum(numbers)
 	want := 15
 
-	if got != want {
-		t.Errorf("expected %q but got %q", got, want)
-	}
+	utils.AssertCorrectNumbersMessage(t, got, want)
 }

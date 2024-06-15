@@ -1,14 +1,15 @@
 package iteration
 
-import "testing"
+import (
+	"go-fundamentals/utils"
+	"testing"
+)
 
 func TestRepeat(t *testing.T) {
-	repeated := Repeat("a", 5)
+	got := Repeat("a", 5)
 	expected := "aaaaaa"
 
-	if repeated != expected {
-		t.Errorf("expected %q but got %q", expected, repeated)
-	}
+	utils.AssertCorrectStringsMessage(t, got, expected)
 }
 
 func BenchmarkRepeat(b *testing.B) {
