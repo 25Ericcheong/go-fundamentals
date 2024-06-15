@@ -11,5 +11,5 @@ func TestSum(t *testing.T) {
 	got := Sum(numbers)
 	want := 15
 
-	utils.AssertCorrectNumbersMessage(t, got, want)
+	utils.AssertCorrectNumbersAndArrayMessage(t, got, want, numbers)
 }
