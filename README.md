@@ -11,3 +11,6 @@ My attempt to learn Go via testing
 
 ## Iteration
 - Learned to use benchmark testing. Useful for testing performance of new code with the following command `go test -bench=.`
+
+## Arrays and Slices
+- Use `go test -cover` to display test coverage if needed. Great way to determining areas of code that need testing for.

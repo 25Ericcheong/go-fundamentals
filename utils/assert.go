@@ -16,7 +16,7 @@ func AssertCorrectNumbersMessage(t testing.TB, got, want int) {
 	}
 }
 
-func AssertCorrectNumbersAndArrayMessage(t testing.TB, got, want int, arr [5]int) {
+func AssertCorrectNumbersAndArrayMessage(t testing.TB, got, want int, arr []int) {
 	t.Helper()
 	if got != want {
 		t.Errorf("got %d want %d for %v", got, want, arr)
