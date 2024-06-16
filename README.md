@@ -26,3 +26,5 @@ My attempt to learn Go via testing
 - Methods within structs perform automatic de-referencing of the pointers. Whereas, in a normal function you would need to. Note the differences and instances when using `&` (gets the memory address for this variable currently in the code) and `*` (before a variable is for de-referencing and after a `type` we're saying it's a pointer for this `type`)
 - Ability to create new types from existing ones. Example is `type Ringgit int` with `Ringgit` being the new type name
 - Stringer Interface already defined in fmt package and essentially is called when printing using the %s format. Allows us to customize how our type should be printed
+- `(t testing.TB).Fatal` stops test and prevents more unnecessary asserts from being performed
+- `var` keyword allows us to define values global to the package
