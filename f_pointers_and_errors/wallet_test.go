@@ -1,7 +1,6 @@
 package pointers_and_errors
 
 import (
-	"go-fundamentals/utils"
 	"testing"
 )
 
@@ -11,7 +10,10 @@ func TestWallet(t *testing.T) {
 	wallet.Deposit(10)
 
 	got := wallet.Balance()
-	want := 10
+	want := Bitcoin(10)
 
-	utils.AssertCorrectIntMessage(t, got, want)
+	// For this instance, type is Bitcoin from int
+	if got != want {
+		t.Errorf("got %s want %s", got, want)
+	}
 }
