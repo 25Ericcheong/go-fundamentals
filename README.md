@@ -23,4 +23,4 @@ My attempt to learn Go via testing
 ## Pointers and Errors
 - A field that starts with a lowercase symbol is private to outside the package it is defined in.
 - In a function or a method in Go, the arguments are copied. It is important to use pointers so we ensure we take the pointer of a type that has already been instantiated to update/modify rather than update/modify a copy of it when the method is called (the use of a `*`)
-- Methods within structs perform automatic de-referencing of the pointers. Whereas, in a normal function you would need to. Note the differences and instances when using `&` (gets the memory address for this type currently in the code) and `*` (before a variable is for de-referencing and after a `type` we're saying its a pointer for this `type`)
+- Methods within structs perform automatic de-referencing of the pointers. Whereas, in a normal function you would need to. Note the differences and instances when using `&` (gets the memory address for this variable currently in the code) and `*` (before a variable is for de-referencing and after a `type` we're saying it's a pointer for this `type`)
