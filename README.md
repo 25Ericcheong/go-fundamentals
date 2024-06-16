@@ -28,3 +28,4 @@ My attempt to learn Go via testing
 - Stringer Interface already defined in fmt package and essentially is called when printing using the %s format. Allows us to customize how our type should be printed
 - `(t testing.TB).Fatal` stops test and prevents more unnecessary asserts from being performed
 - `var` keyword allows us to define values global to the package
+- `errcheck` a Golang  linter helps with identifying missing code blocks that do not check for `error` being returned
