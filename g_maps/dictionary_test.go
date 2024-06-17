@@ -6,13 +6,12 @@ import (
 )
 
 func TestSearch(t *testing.T) {
-	dict := Dictionary{"test": "this is just a test"}
+	word := "test"
+	definition := "this is just a test"
+	dict := Dictionary{word: definition}
 
 	t.Run("known word", func(t *testing.T) {
-		got, _ := dict.Search("test")
-		want := "this is just a test"
-
-		utils.AssertCorrectStringsMessage(t, got, want)
+		assertDefinition(t, dict, word, definition)
 	})
 
 	t.Run("unknown word", func(t *testing.T) {
@@ -28,14 +27,20 @@ func TestSearch(t *testing.T) {
 
 func TestAdd(t *testing.T) {
 	dict := Dictionary{}
-	dict.Add("test", "this is just a test")
+	word := "test"
+	definition := "this is just a test"
 
-	want := "this is just a test"
-	got, err := dict.Search("test")
+	dict.Add(word, definition)
 
+	assertDefinition(t, dict, word, definition)
+}
+
+func assertDefinition(t testing.TB, dict Dictionary, word, definition string) {
+	t.Helper()
+
+	got, err := dict.Search(word)
 	if err != nil {
 		t.Fatal("should find added word:", err)
 	}
-
-	utils.AssertCorrectStringsMessage(t, got, want)
+	utils.AssertCorrectStringsMessage(t, got, definition)
 }

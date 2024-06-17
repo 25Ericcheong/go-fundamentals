@@ -32,3 +32,4 @@ My attempt to learn Go via testing
 
 ## Maps
 - Maps can return 2 values - the value and whether key exists in map
+- Maps can be `nil`. Ensure to never initialize an empty map variable like so `var m map[string]string`
