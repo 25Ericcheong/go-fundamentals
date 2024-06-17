@@ -1,9 +1,17 @@
 package utils
 
 import (
+	"errors"
 	"slices"
 	"testing"
 )
+
+func AssertCorrectErrorMessage(t testing.TB, got, want error) {
+	t.Helper()
+	if !errors.Is(got, want) {
+		t.Errorf("got error %q want %q", got, want)
+	}
+}
 
 func AssertCorrectStringsMessage(t testing.TB, got, want string) {
 	t.Helper()

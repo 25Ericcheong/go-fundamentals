@@ -29,3 +29,6 @@ My attempt to learn Go via testing
 - `(t testing.TB).Fatal` stops test and prevents more unnecessary asserts from being performed
 - `var` keyword allows us to define values global to the package
 - `errcheck` a Golang  linter helps with identifying missing code blocks that do not check for `error` being returned
+
+## Maps
+- Maps can return 2 values - the value and whether key exists in map
