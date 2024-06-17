@@ -13,7 +13,7 @@ func (e DictErr) Error() string {
 var (
 	ErrNotFound         = DictErr("could not find the word you were looking for")
 	ErrWordExists       = DictErr("cannot add word cause it already exists")
-	ErrWordDoesNotExist = DictErr("word does not exists")
+	ErrWordDoesNotExist = DictErr("cannot update word as word does not exists")
 )
 
 type Dictionary map[string]string
@@ -56,4 +56,8 @@ func (d Dictionary) Update(word, definition string) error {
 	}
 
 	return nil
+}
+
+func (d Dictionary) Delete(word string) {
+	delete(d, word)
 }
