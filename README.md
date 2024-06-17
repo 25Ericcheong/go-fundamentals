@@ -33,3 +33,5 @@ My attempt to learn Go via testing
 ## Maps
 - Maps can return 2 values - the value and whether key exists in map
 - Maps can be `nil`. Ensure to never initialize an empty map variable like so `var m map[string]string`
+- Do not need to pass `map` type as an address like usual with `*type` as Go makes a copy of just the pointer part already for us but not the underlying data structure that contains the data. Maps are pointers to runtime types
+- Create a specific `error type` by ensuring type implements the `error` interface with the implementation of the `Error()` method
