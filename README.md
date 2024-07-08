@@ -35,3 +35,6 @@ My attempt to learn Go via testing
 - Maps can be `nil`. Ensure to never initialize an empty map variable like so `var m map[string]string`
 - Do not need to pass `map` type as an address like usual with `*type` as Go makes a copy of just the pointer part already for us but not the underlying data structure that contains the data. Maps are pointers to runtime types
 - Create a specific `error type` by ensuring type implements the `error` interface with the implementation of the `Error()` method
+
+## Dependency Injection
+- Learnt that `httpResponseWriter` implements `io.Writer` which is a clear indication of how handlers can be tested with the use of dependency injection and testing the output of the handlers via its response writers
