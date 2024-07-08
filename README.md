@@ -41,4 +41,4 @@ My attempt to learn Go via testing
 
 ## Mocking
 - A [great example of mocking](https://github.com/25Ericcheong/go-fundamentals/commit/7902b04b1e1ecf2f249de3d6f2daa8a56365e4fe). This allow us inject a mock dependency for testing purposes and also still ensure code work as intended in prod (specific to time in this instance). This is important as it promotes loose coupling and allow us to test our dependency
-- Be aware that [an existing spy object)[https://github.com/25Ericcheong/go-fundamentals/commit/987fa702ad3c858521998b71fa0fa6aa939ffd32] can be further extended to implement multiple interfaces as long as it implements the method signature listed in the interface. This allow us to test multiple methods in this scenario
+- Be aware that [an existing spy object](https://github.com/25Ericcheong/go-fundamentals/commit/987fa702ad3c858521998b71fa0fa6aa939ffd32) can be further extended to implement multiple interfaces as long as it implements the method signature listed in the interface. This allow us to test multiple methods in this scenario
