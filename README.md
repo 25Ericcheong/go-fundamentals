@@ -42,3 +42,8 @@ My attempt to learn Go via testing
 ## Mocking
 - A [great example of mocking](https://github.com/25Ericcheong/go-fundamentals/commit/7902b04b1e1ecf2f249de3d6f2daa8a56365e4fe). This allow us inject a mock dependency for testing purposes and also still ensure code work as intended in prod (specific to time in this instance). This is important as it promotes loose coupling and allow us to test our dependency
 - Be aware that [an existing spy object](https://github.com/25Ericcheong/go-fundamentals/commit/987fa702ad3c858521998b71fa0fa6aa939ffd32) can be further extended to implement multiple interfaces as long as it implements the method signature listed in the interface. This allow us to test multiple methods in this scenario
+
+## Concurrency
+- Note when using concurrency, "not enough time to add their results", when for looping each variable; important to ensure that a new variable is use for each iteration (each goroutine spawned via `go func(variableNameInGoRoutine){}(variablePassedIntoGoRoutine)` if not done same variable is replaced with a new variable for new goroutine and the error `fatal error: concurrent map writes` which is due to multiple `goroutines` writing to the results map at exactly the same time (specific to `map` in Go)
+- If multiple things attempting to write to one thing, this is a race condition. To avoid such case, can use the command `go test -race`.
+- This can be resolve appropriately with the use of `channels`. Channels coordinate the goroutines which can both receive and send values. This ability allows it to communicate between different processes. Remember: think about parent process and each of the `goroutines` that it makes to do the work of running a function. 
