@@ -38,3 +38,6 @@ My attempt to learn Go via testing
 
 ## Dependency Injection
 - Learnt that `httpResponseWriter` implements `io.Writer` which is a clear indication of how handlers can be tested with the use of dependency injection and testing the output of the handlers via its response writers
+
+## Mocking
+- A [great example of mocking](https://github.com/25Ericcheong/go-fundamentals/commit/7902b04b1e1ecf2f249de3d6f2daa8a56365e4fe). This allow us inject a mock dependent for testing purposes and also still ensure code work as intended in prod. This is important as it promotes loose coupling and allow us to test our dependency
