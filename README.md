@@ -57,4 +57,7 @@ My attempt to learn Go via testing
 - `sync.WaitGroup` is used to synchronise concurrent processes. It waits for a collection of goroutines to finish.
 - The main goroutine calls `Add` to set the number of goroutines to wait for. Then each of the goroutines runs and calls `Done` when finished. At the same time, `Wait` can be used to block until all goroutines have finished.
 - `Mutex` can be used to ensure that something is locked which ensures that only one goroutine can modify something one at a time. Do not directly embed `mutex` into struct and remember to not create a copy of mutex when passing to other functions which golang automatically does
-- Common mistake is to overuse `channels` and `goroutines`. Use channels when passing ownership of data and use mutexes for managing state. Use `go vet` to catch subtle bugs. 
+- Common mistake is to overuse `channels` and `goroutines`. Use channels when passing ownership of data and use mutexes for managing state. Use `go vet` to catch subtle bugs.
+
+## Context
+- Use `request.Context` and pass that into any methods making I/O like executions for tracking purposes down the road 
