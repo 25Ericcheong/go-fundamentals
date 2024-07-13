@@ -60,4 +60,5 @@ My attempt to learn Go via testing
 - Common mistake is to overuse `channels` and `goroutines`. Use channels when passing ownership of data and use mutexes for managing state. Use `go vet` to catch subtle bugs.
 
 ## Context
-- Use `request.Context` and pass that into any methods making I/O like executions for tracking purposes down the road 
+- Use `request.Context` and pass that into any methods making I/O like executions for tracking purposes down the road
+- When creating a new context out of the incoming request (which is a common practice), remember to send context as the method's first argument and ensure that the timeout or deadline method is used so that the context is cancelled after a certain amount of time has passed.
