@@ -9,6 +9,7 @@ on:
 jobs:
 
   build:
+    name: Build & Test Project
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -16,7 +17,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: '1.25.3'
+        go-version: "1.25.3"
 
     - name: Build
       run: go build -v ./...
