@@ -3,7 +3,8 @@ package structs_methods_and_interfaces
 import "testing"
 
 func TestPerimeter(t *testing.T) {
-	got := Perimeter(10.0, 10.0)
+	rect := Rectangle{Width: 10, Height: 10}
+	got := Perimeter(rect)
 	want := 40.0
 
 	if got != want {
@@ -12,7 +13,8 @@ func TestPerimeter(t *testing.T) {
 }
 
 func TestArea(t *testing.T) {
-	got := Area(12.0, 6.0)
+	rect := Rectangle{Width: 12, Height: 6}
+	got := Area(rect)
 	want := 72.0
 
 	if got != want {
