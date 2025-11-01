@@ -5,18 +5,26 @@ import (
 	"testing"
 )
 
-// SpySleeper used to mock implementation of default sleeper
-type SpySleeper struct {
-	Calls int
+const write = "write"
+const sleep = "sleep"
+
+// SpyCountdownOperations used to mock time.Sleep and ensure that number is sent to buffer in the correct order (after time.Sleep)
+type SpyCountdownOperations struct {
+	Calls []string
 }
 
-func (s *SpySleeper) Sleep() {
-	s.Calls++
+func (s *SpyCountdownOperations) Sleep() {
+	s.Calls = append(s.Calls, sleep)
+}
+
+func (s *SpyCountdownOperations) Write(p []byte) (n int, err error) {
+	s.Calls = append(s.Calls, write)
+	return
 }
 
 func TestCountdown(t *testing.T) {
 	buffer := &bytes.Buffer{}
-	spySleeper := &SpySleeper{}
+	spySleeper := &SpyCountdownOperations{}
 
 	Countdown(buffer, spySleeper)
 
