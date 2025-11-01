@@ -1,10 +1,10 @@
-package go_fundamentals
+package main
 
 import (
-	dependencyinjection "go-fundamentals/dependency-injection"
+	"go-fundamentals/mocking"
 	"os"
 )
 
 func main() {
-	dependencyinjection.Greet(os.Stdout, "test")
+	mocking.Countdown(os.Stdout)
 }
