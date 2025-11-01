@@ -28,6 +28,7 @@ type SpyTime struct {
 	durationSlept time.Duration
 }
 
+// Used to mock and ensure that the configured duration is used
 func (s *SpyTime) SetDurationSlept(duration time.Duration) {
 	s.durationSlept = duration
 }
@@ -39,7 +40,7 @@ func TestConfigurableSleeper(t *testing.T) {
 
 	configurableSleeper := &ConfigurableSleeper{sleepDuration, spyTime.SetDurationSlept}
 	configurableSleeper.Sleep()
-	
+
 	if sleepDuration != spyTime.durationSlept {
 		t.Errorf("got %q want %q", spyTime.durationSlept, sleepDuration)
 	}
