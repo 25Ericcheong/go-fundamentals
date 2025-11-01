@@ -22,10 +22,10 @@ type Sleeper interface {
 }
 
 type ConfigurableSleeper struct {
-	duration time.Duration
-	sleep    func(time.Duration)
+	Duration   time.Duration
+	InnerSleep func(time.Duration)
 }
 
 func (d *ConfigurableSleeper) Sleep() {
-	d.sleep(d.duration)
+	d.InnerSleep(d.Duration)
 }
