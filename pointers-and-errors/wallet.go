@@ -4,7 +4,7 @@ import "fmt"
 
 type Bitcoin int
 
-// By doing this, we implement Stringer for Bitcoin type
+// By doing this, we implement Stringer interface for Bitcoin type
 // Allows us to implement customized string() method
 func (b Bitcoin) String() string {
 	return fmt.Sprintf("%d BTC", b)
