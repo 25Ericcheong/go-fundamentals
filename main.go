@@ -1,8 +1,10 @@
 package go_fundamentals
 
-import "fmt"
+import (
+	dependencyinjection "go-fundamentals/dependency-injection"
+	"os"
+)
 
 func main() {
-	fmt.Print("Hello")
-	fmt.Print("World")
+	dependencyinjection.Greet(os.Stdout, "test")
 }
